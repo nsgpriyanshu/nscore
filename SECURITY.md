@@ -6,8 +6,8 @@ We release patches for security vulnerabilities in the following versions. If yo
 
 | Version  | Supported |
 | -------- | --------- |
-| 1.1.21   | ✅        |
-| < 1.1.21 | ❌        |
+| 1.1.25   | ✅        |
+| < 1.1.25 | ❌        |
 
 ## Reporting a Vulnerability
 
