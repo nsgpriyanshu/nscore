@@ -1,0 +1,19 @@
+# Terms of Condition
+
+By using nsCore ("the Bot"), you agree to be bound by the following terms and conditions:
+
+1. **Use of the Bot:** You agree to use the Bot only in accordance with its intended purpose and functionality as described in the bot's commands and documentation.
+
+2. **Prohibited Behavior:** You agree not to use the Bot for any unlawful or prohibited activities, including but not limited to spamming, harassment, or any activity that violates Discord's Terms of Service.
+
+3. **No Warranty:** The Bot is provided "as is" without any warranty of any kind, express or implied. We make no guarantees regarding the availability, reliability, or accuracy of the Bot.
+
+4. **Limitation of Liability:** We shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way connected with the use or inability to use the Bot.
+
+5. **Changes to Terms:** We reserve the right to modify or update these terms of condition at any time without prior notice. It is your responsibility to review these terms periodically for changes.
+
+6. **Termination:** We reserve the right to terminate or suspend your access to the Bot at any time, without prior notice or liability, for any reason whatsoever.
+
+By using the Bot, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.
+
+If you have any questions or concerns about these terms, please contact us at [Discord](https://discord.gg/QhDM7s6Aps).
