@@ -20,13 +20,13 @@ const appInfo: SlashCommand = {
       .addFields({
         name: `${EMOJIS.leaf} Resources`,
         value:
-          '[Docs](https://github.com/nsgpriyanshu/nscore/docs)\n[Community Server](https://discord.gg/VUMVuArkst)',
+          '[Docs](https://nsgpriyanshu.github.io/nscore/)\n[Community Server](https://discord.gg/4szUHfvZ4g)',
         inline: true,
       })
       .addFields({
         name: `${EMOJIS.link} Links`,
         value:
-          '[Invite](https://discord.com/oauth2/authorize?client_id=943458326644150323)\n[TOS](https://nsgpriyanshu.github.io/nscore/docs/tos)\n[Privacy Policy](https://nsgpriyanshu.github.io/nscore/docs/policy)',
+          '[Invite](https://discord.com/oauth2/authorize?client_id=943458326644150323)\n[TOS](https://nsgpriyanshu.github.io/nscore/tos/)\n[Privacy Policy](https://nsgpriyanshu.github.io/nscore/policy/)',
         inline: true,
       })
       .addFields({
