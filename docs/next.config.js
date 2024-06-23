@@ -5,8 +5,8 @@ const withNextra = require('nextra')({
 
 const nextConfig = {
   output: 'export',
-  basePath: '/nscoretest',
-  assetPrefix: '/nscoretest/',
+  basePath: '/nscore',
+  assetPrefix: '/nscore/',
   images: {
     unoptimized: true,
   },
