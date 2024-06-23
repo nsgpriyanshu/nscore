@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'bot:dependabot'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - 'dependencies'
+      - 'actions'
+  # - package-ecosystem: 'docker'
+  #   directory: '/'
+  #   schedule:
+  #     interval: 'weekly'
+  #   labels:
+  #     - 'dependencies'
