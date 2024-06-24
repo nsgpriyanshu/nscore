@@ -1,0 +1,24 @@
+# Treat mdx files as text
+*.mdx linguist-language=Markdown
+
+# Treat ts and js files as text
+*.ts linguist-language=TypeScript
+*.js linguist-language=JavaScript
+
+# Treat css files as text
+*.css linguist-language=CSS
+
+# Treat tsx files as text
+*.tsx linguist-language=TypeScriptReact
+
+# Set default behavior for text files
+*.md text
+*.ts text
+*.js text
+*.css text
+*.tsx text
+
+# Set default behavior for binary files
+*.png binary
+*.jpg binary
+*.gif binary
