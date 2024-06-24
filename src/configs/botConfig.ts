@@ -11,6 +11,8 @@ interface BotConfig {
   GATE_CHANNEL: string
   PRODIA_API_KEY: string
   NEWS_API_KEY: string
+  WELCOME_CHANNEL: string
+  WEATHER_API_KEY: string
 }
 
 const config: BotConfig = {
@@ -22,6 +24,9 @@ const config: BotConfig = {
   GATE_CHANNEL: process.env.JOIN_GATE_CHANNEL_ID as string,
   PRODIA_API_KEY: process.env.PRODIA_API as string,
   NEWS_API_KEY: process.env.NEWS_API as string,
+  WELCOME_CHANNEL: process.env.WELCOME_GATE_CHANNEL_ID as string,
+  WEATHER_API_KEY: process.env.WEATHER_API as string,
 }
 
 export default config
+

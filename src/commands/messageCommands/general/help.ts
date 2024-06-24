@@ -57,7 +57,7 @@ const help: MessageCommand = {
           .addFields({
             name: `${EMOJIS.leaf} Resources`,
             value:
-              '[Docs](https://github.com/nsgpriyanshu/nscore)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
+              '[Docs](https://nsgpriyanshu.github.io/nscore/)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
             inline: true,
           })
       )

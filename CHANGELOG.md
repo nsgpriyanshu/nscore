@@ -6,6 +6,39 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.27] - 2024-06-24
+
+### Added
+
+- weather command
+- weather command docs
+
+### Changed
+
+- env: added weather api key
+- help command: fix the docs links
+- the colors of version badge
+
+### Fixed
+
+- Some bugs
+
+## [1.1.26] - 2024-06-23
+
+### Added
+
+- guild member add event
+- guild member remove event
+- greetify npm package for welcome cards
+
+### Changed
+
+- env: added welcome channel ids
+
+### Fixed
+
+- Some bugs
+
 ## [1.1.25] - 2024-06-22
 
 ### Added
