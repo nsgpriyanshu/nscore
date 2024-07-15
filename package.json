@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@types/node": "^20.14.9",
-    "@types/ws": "^8.5.10",
+    "@types/ws": "^8.5.11",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
     "discord.js": "^14.15.3",
