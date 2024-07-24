@@ -4,10 +4,13 @@ import { useConfig, DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
   useNextSeoProps() {
+    const { frontMatter } = useConfig()
     return {
       titleTemplate: '%s – nsCore',
       defaultTitle: 'nsCore',
-      description: 'This is official documentation of nsCore',
+      description:
+        frontMatter.description ||
+        'A comprehensive, production-level guide for developing and managing a Discord app effectively.',
       twitter: {
         handle: '@nsgpriyanshu',
         site: '@nsgpriyanshu',
@@ -15,15 +18,19 @@ const config: DocsThemeConfig = {
       },
       openGraph: {
         type: 'website',
-        url: 'https://nsgpriyanshu.github.io/nscorebot/docs',
+        url: 'https://nsgpriyanshu.github.io/nsCore',
         site_name: 'nsCore',
+        title: frontMatter.title || 'nsCore',
+        description:
+          frontMatter.description ||
+          'A comprehensive, production-level guide for developing and managing a Discord app effectively.',
       },
     }
   },
   logo: (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <img src="./nscore.png" alt="nsCore" style={{ height: '2rem', marginRight: '0.5rem' }} />
-      <span style={{ fontWeight: 700 }}>nsDocs</span>
+      <img src="./logo.png" alt="nsCore" style={{ height: '2rem', marginRight: '0.5rem' }} />
+      <span style={{ fontWeight: 700 }}>nsCore</span>
     </div>
   ),
   project: {
@@ -32,9 +39,9 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/G44dR8Zjwx',
   },
-  docsRepositoryBase: 'https://github.com/nsgpriyanshu/nscore/docs',
+  docsRepositoryBase: 'https://github.com/nsgpriyanshu/nscore',
   footer: {
-    text: 'Developed by ŊʂƓ ᴾᴿᴵᵞᴬᴺˢᴴᵁ ',
+    text: 'Developed by ŊʂƓ ᴾᴿᴵᵞᴬᴺˢᴴᵁ',
   },
   sidebar: {
     toggleButton: true,
@@ -43,7 +50,7 @@ const config: DocsThemeConfig = {
     const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter } = useConfig()
     const url =
-      'https://github.com/nsgpriyanshu/nscore/docs' +
+      'https://nsgpriyanshu.github.io/nscore' +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
 
     return (
@@ -52,9 +59,28 @@ const config: DocsThemeConfig = {
         <meta property="og:title" content={frontMatter.title || 'nsCore'} />
         <meta
           property="og:description"
-          content={frontMatter.description || 'This is official documentation of nsCore'}
+          content={frontMatter.description || 'A production level discord app guide'}
         />
-        <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+        <meta property="og:image" content="https://nsgpriyanshu.github.io/nscore/preview.png" />
+        <meta property="og:site_name" content="nsCore" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@nsgpriyanshu" />
+        <meta name="twitter:creator" content="@nsgpriyanshu" />
+        <meta name="twitter:title" content={frontMatter.title || 'nsCore'} />
+        <meta
+          name="twitter:description"
+          content={frontMatter.description || 'A production level discord app guide'}
+        />
+        <meta name="twitter:image" content="https://nsgpriyanshu.github.io/nscore/preview.png" />
+        <meta name="keywords" content="Discord, app, guide, production-level, nsCore" />
+        <meta name="author" content="ŊʂƓ ᴾᴿᴵᵞᴬᴺˢᴴᵁ" />
+        <meta property="robots" content="index, follow" />
+        <link rel="canonical" href="https://nsgpriyanshu.github.io/nscore" />
+        <link
+          rel="icon"
+          href="https://nsgpriyanshu.github.io/nscore/favicon.ico"
+          type="image/x-icon"
+        />
       </>
     )
   },

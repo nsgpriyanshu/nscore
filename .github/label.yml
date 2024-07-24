@@ -1,0 +1,168 @@
+labels:
+  - name: actions
+    color: '#15985C'
+    description: Issues related to GitHub Actions workflows, automation, or CI/CD processes
+    condition: |
+      issue.title =~ /actions?/i
+      || issue.body =~ /actions?/i
+      || issue.labels =~ /actions?/i
+
+  - name: bot:dependabot
+    color: '#1E90FF'
+    description: Issues related to Dependabot alerts, updates, or configuration within the project dependencies
+    condition: |
+      issue.title =~ /dependabot/i
+      || issue.body =~ /dependabot/i
+      || issue.labels =~ /dependabot/i
+
+  - name: bugs
+    color: '#d73a4a'
+    description: Something isn't working
+    condition: |
+      issue.title =~ /bugs?|issues?|errors?/i
+      || issue.body =~ /bugs?|issues?|errors?/i
+      || issue.labels =~ /bugs?|issues?|errors?/i
+
+  - name: command:slash/interaction
+    color: '#F721FA'
+    description: Issues specifically related to Discord slash commands, including implementation and behavior
+    condition: |
+      issue.title =~ /slash commands?|interactions?/i
+      || issue.body =~ /slash commands?|interactions?/i
+      || issue.labels =~ /slash commands?|interactions?/i
+
+  - name: commands:message
+    color: '#96EE64'
+    description: Issues specifically related to message-based commands, including implementation and behavior
+    condition: |
+      issue.title =~ /message commands?/i
+      || issue.body =~ /message commands?/i
+      || issue.labels =~ /message commands?/i
+
+  - name: commands
+    color: '#007aff'
+    description: Issues related to the implementation, functionality, or behavior of bot commands
+    condition: |
+      issue.title =~ /commands?/i
+      || issue.body =~ /commands?/i
+      || issue.labels =~ /commands?/i
+
+  - name: dependencies
+    color: '#ffc700'
+    description: Issues related to dependencies, libraries, or external integrations used by the app
+    condition: |
+      issue.title =~ /dependencies?|libraries?|integrations?/i
+      || issue.body =~ /dependencies?|libraries?|integrations?/i
+      || issue.labels =~ /dependencies?|libraries?|integrations?/i
+
+  - name: discussion
+    color: '#351292'
+    description: Label used for open-ended discussions, questions, or brainstorming topics related to the app
+    condition: |
+      issue.title =~ /discussion|questions?|brainstorming/i
+      || issue.body =~ /discussion|questions?|brainstorming/i
+      || issue.labels =~ /discussion|questions?|brainstorming/i
+
+  - name: docs
+    color: '#0075ca'
+    description: Improvements or additions to documentation
+    condition: |
+      issue.title =~ /docs?|documentation|guides?/i
+      || issue.body =~ /docs?|documentation|guides?/i
+      || issue.labels =~ /docs?|documentation|guides?/i
+
+  - name: duplicate
+    color: '#cfd3d7'
+    description: This issue or pull request already exists
+    condition: |
+      issue.title =~ /duplicates?|already exists/i
+      || issue.body =~ /duplicates?|already exists/i
+      || issue.labels =~ /duplicates?|already exists/i
+
+  - name: enhancement
+    color: '#a2eeef'
+    description: New feature or request
+    condition: |
+      issue.title =~ /enhancements?|new feature|requests?/i
+      || issue.body =~ /enhancements?|new feature|requests?/i
+      || issue.labels =~ /enhancements?|new feature|requests?/i
+
+  - name: events
+    color: '#ffa500'
+    description: Issues related to handling events triggered by Discord or other external sources within the app
+    condition: |
+      issue.title =~ /events?|triggers?/i
+      || issue.body =~ /events?|triggers?/i
+      || issue.labels =~ /events?|triggers?/i
+
+  - name: good first issue
+    color: '#7057ff'
+    description: Good for newcomers
+    condition: |
+      issue.title =~ /good first issues?|beginner|easy|starter/i
+      || issue.body =~ /good first issues?|beginner|easy|starter/i
+      || issue.labels =~ /good first issues?|beginner|easy|starter/i
+
+  - name: help wanted
+    color: '#008672'
+    description: Extra attention is needed
+    condition: |
+      issue.title =~ /help wanted|help needed|assistance required/i
+      || issue.body =~ /help wanted|help needed|assistance required/i
+      || issue.labels =~ /help wanted|help needed|assistance required/i
+
+  - name: interfaces
+    color: '#1ecdbc'
+    description: Issues related to the interfaces of the Discord app
+    condition: |
+      issue.title =~ /interfaces?|ui|ux/i
+      || issue.body =~ /interfaces?|ui|ux/i
+      || issue.labels =~ /interfaces?|ui|ux/i
+
+  - name: invalid
+    color: '#e4e669'
+    description: This doesn't seem right
+    condition: |
+      issue.title =~ /invalid|incorrect|wrong/i
+      || issue.body =~ /invalid|incorrect|wrong/i
+      || issue.labels =~ /invalid|incorrect|wrong/i
+
+  - name: performance
+    color: '#073d13'
+    description: Concerns related to the speed, efficiency, or resource usage of the app
+    condition: |
+      issue.title =~ /performance|speed|efficiency|resource usage/i
+      || issue.body =~ /performance|speed|efficiency|resource usage/i
+      || issue.labels =~ /performance|speed|efficiency|resource usage/i
+
+  - name: priority
+    color: '#8b0000'
+    description: Issues that are labeled to indicate their level of urgency or importance in the app repo
+    condition: |
+      issue.title =~ /priority|urgent|important/i
+      || issue.body =~ /priority|urgent|important/i
+      || issue.labels =~ /priority|urgent|important/i
+
+  - name: question
+    color: '#d876e3'
+    description: Further information is requested
+    condition: |
+      issue.title =~ /question|inquiry|query/i
+      || issue.body =~ /question|inquiry|query/i
+      || issue.labels =~ /question|inquiry|query/i
+
+  - name: security
+    color: '#ff2d55'
+    description: Issues related to security vulnerabilities, privacy concerns, or data protection measures
+    condition: |
+      issue.title =~ /security|vulnerability|threat|privacy|data protection/i
+      || issue.body =~ /security|vulnerability|threat|privacy|data protection/i
+      || issue.labels =~ /security|vulnerability|threat|privacy|data protection/i
+
+  - name: wontfix
+    color: '#ffffff'
+    description: This will not be worked on
+    condition: |
+      issue.title =~ /wontfix|won't fix|not fixed/i
+      || issue.body =~ /wontfix|won't fix|not fixed/i
+      || issue.labels =~ /wontfix|won't fix|not fixed/i

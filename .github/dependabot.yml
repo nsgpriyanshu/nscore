@@ -7,6 +7,8 @@ updates:
     labels:
       - 'dependencies'
       - 'bot:dependabot'
+    commit-message:
+      prefix: 'deps'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
@@ -14,3 +16,11 @@ updates:
     labels:
       - 'dependencies'
       - 'actions'
+    commit-message:
+      prefix: 'deps'
+  # - package-ecosystem: 'docker'
+  #   directory: '/'
+  #   schedule:
+  #     interval: 'weekly'
+  #   labels:
+  #     - 'dependencies'

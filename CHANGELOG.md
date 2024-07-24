@@ -6,6 +6,38 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.29] - 2024-07-24
+
+### Added
+
+- None
+
+### Changed
+
+- The full document section in which the search engine optimization of the document is enhanced
+- Updated all the dependencies and frameworks
+
+### Fixed
+
+- Minor Bugs
+- SECURITY policy: Updated to the latesy version
+
+## [1.1.28] - 2024-07-23
+
+### Added
+
+- labels and labeler workflows
+- auto-merger.yml: For auto merging the PR of dependabot
+- A config.yml issue template
+
+### Changed
+
+- Color of index log to background
+
+### Fixed
+
+- None
+
 ## [1.1.27] - 2024-06-24
 
 ### Added
