@@ -6,6 +6,21 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.30] - 2024-07-25
+
+### Added
+
+- None
+
+### Changed
+
+- Fixed the auto-merger workflow
+- Now changelog will bw written on angular commit conventio
+
+### Bug Fixes
+
+- Minor Bugs
+
 ## [1.1.29] - 2024-07-24
 
 ### Added
