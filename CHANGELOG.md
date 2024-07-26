@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.31] - 2024-07-26
+
+### Documentation
+
+- Added preview image for og and twitter
+
+### Changed
+
+- None
+
+### Bug Fixes
+
+- None
+
 ## [1.1.30] - 2024-07-25
 
 ### Added

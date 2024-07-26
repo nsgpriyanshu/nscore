@@ -61,7 +61,7 @@ const config: DocsThemeConfig = {
           property="og:description"
           content={frontMatter.description || 'A production level discord app guide'}
         />
-        <meta property="og:image" content="https://nsgpriyanshu.github.io/nscore/preview.png" />
+        <meta property="og:image" content="https://nsgpriyanshu.github.io/nscore/preview.jpg" />
         <meta property="og:site_name" content="nsCore" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@nsgpriyanshu" />
@@ -71,7 +71,7 @@ const config: DocsThemeConfig = {
           name="twitter:description"
           content={frontMatter.description || 'A production level discord app guide'}
         />
-        <meta name="twitter:image" content="https://nsgpriyanshu.github.io/nscore/preview.png" />
+        <meta name="twitter:image" content="https://nsgpriyanshu.github.io/nscore/preview.jpg" />
         <meta name="keywords" content="Discord, app, guide, production-level, nsCore" />
         <meta name="author" content="ŊʂƓ ᴾᴿᴵᵞᴬᴺˢᴴᵁ" />
         <meta property="robots" content="index, follow" />
