@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 
 - Initial release of the package
 
+## [1.1.32] - 2024-07-29
+
+### Added
+
+- Jest and its test configurations
+
+### Changed
+
+- README.md: add jest badge
+
+### Bug Fixes
+
+- None
+
 ## [1.1.31] - 2024-07-26
 
 ### Documentation

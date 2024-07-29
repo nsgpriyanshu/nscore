@@ -13,6 +13,7 @@
 [![CodeQL](https://github.com/nsgpriyanshu/nscore/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/nscore/actions/workflows/codeql.yml)
 [![Dependency Review](https://github.com/nsgpriyanshu/nscore/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/nsgpriyanshu/nscore/actions/workflows/dependency-review.yml)
 [![Dependabot Updates](https://github.com/nsgpriyanshu/nscore/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/nsgpriyanshu/nscore/actions/workflows/dependabot/dependabot-updates)
+![Jest](https://github.com/nsgpriyanshu/nscore/actions/workflows/test.yml/badge.svg)
 
 </div>
 
