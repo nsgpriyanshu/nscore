@@ -52,7 +52,7 @@ const newsCommand: MessageCommand = {
         .setTimestamp()
         .setImage(newsData.articles[0].urlToImage)
 
-      await message.channel.send({ embeds: [newsEmbed] })
+      await message.reply({ embeds: [newsEmbed] })
     } catch (error) {
       console.error('Error fetching news:', error)
       const errorEmbed = new EmbedBuilder()

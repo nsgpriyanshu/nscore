@@ -28,7 +28,7 @@ const profile: MessageCommand = {
       .setTitle(`${EMOJIS.seo} ${user.displayName}'s Profile Picture`)
       .setImage(user.user.avatarURL())
 
-    await message.channel.send({ embeds: [profileEmbed] })
+    await message.reply({ embeds: [profileEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

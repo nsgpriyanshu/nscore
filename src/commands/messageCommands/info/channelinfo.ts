@@ -83,7 +83,7 @@ const channelInfo: MessageCommand = {
       .setDescription(`${EMOJIS.channel} Channel Name: ${channel.name}\n${EMOJIS.id} Channel ID: ${channel.id}\nChannel Type: ${channelType}\nCategory: ${parentCategory}\nTopic: ${topic}\n ${EMOJIS.inbox} Created At: ${createdAt}
       `)
 
-    await message.channel.send({ embeds: [channelEmbed] })
+    await message.reply({ embeds: [channelEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

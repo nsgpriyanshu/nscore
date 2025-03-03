@@ -33,7 +33,7 @@ const serverIcon: MessageCommand = {
       serverIconEmbed.addFields({ name: 'Banner', value: `(${bannerURL})`, inline: true })
     }
 
-    await message.channel.send({ embeds: [serverIconEmbed] })
+    await message.reply({ embeds: [serverIconEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

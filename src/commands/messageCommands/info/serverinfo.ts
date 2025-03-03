@@ -72,7 +72,7 @@ const serverinfo: MessageCommand = {
       serverInfoEmbed.setImage(guild.bannerURL())
     }
 
-    await message.channel.send({ embeds: [serverInfoEmbed] })
+    await message.reply({ embeds: [serverInfoEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

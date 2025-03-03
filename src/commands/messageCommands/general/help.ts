@@ -88,7 +88,7 @@ const help: MessageCommand = {
     )
 
     // Send initial embed with buttons
-    const sentMessage = await message.channel.send({
+    const sentMessage = await message.reply({
       embeds: [generalEmbed],
       components: [hR],
     })

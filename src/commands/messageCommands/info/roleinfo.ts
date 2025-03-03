@@ -46,7 +46,7 @@ const roleInfo: MessageCommand = {
         `${EMOJIS.roles} Role Name: ${role.name}\n${EMOJIS.id} Role ID: ${role.id}\n${EMOJIS.colors} Color:\nHex: ${role.hexColor} • RGBA: ${rgbaColor}\nMentionable: ${role.mentionable ? 'Yes' : 'No'}\nHoisted: ${role.hoist ? 'Yes' : 'No'}\n${EMOJIS.inbox} Created At: ${role.createdAt?.toDateString()}\n${EMOJIS.members} Number of Members: ${role.members.size}\n${EMOJIS.permissions} Permissions: ${permissions.length > 0 ? permissions.join(', ') : 'None'}`,
       )
 
-    await message.channel.send({ embeds: [roleEmbed] })
+    await message.reply({ embeds: [roleEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

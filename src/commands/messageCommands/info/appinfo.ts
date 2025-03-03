@@ -33,7 +33,7 @@ const appInfo: MessageCommand = {
         inline: true,
       })
 
-    await message.channel.send({ embeds: [appEmbed] })
+    await message.reply({ embeds: [appEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

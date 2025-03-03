@@ -97,7 +97,7 @@ const update: MessageCommand = {
     const confirmEmbed = new EmbedBuilder()
       .setColor(COLORS.green)
       .setDescription('Update message sent to all servers.')
-    await message.channel.send({ embeds: [confirmEmbed] })
+    await message.reply({ embeds: [confirmEmbed] })
   },
   userPermissions: ['Administrator'],
   botPermissions: ['SendMessages'],

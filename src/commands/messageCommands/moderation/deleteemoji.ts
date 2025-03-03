@@ -34,13 +34,13 @@ const deleteEmoji: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully deleted the emoji.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error deleting emoji:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setDescription(`${EMOJIS.failed} There was an error deleting the emoji. Please try again.`)
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageEmojisAndStickers'],

@@ -52,13 +52,13 @@ const addrole: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully assigned the role ${role} to ${user}.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error adding role:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setDescription(`${EMOJIS.failed} There was an error assigning the role. Please try again.`)
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageRoles'],

@@ -33,7 +33,7 @@ const boostInfo: MessageCommand = {
           `${EMOJIS.sparklesd} Boosters \n${boosters}`,
       )
 
-    await message.channel.send({ embeds: [boostEmbed] })
+    await message.reply({ embeds: [boostEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

@@ -56,7 +56,7 @@ const remove: MessageCommand = {
         .setStyle(ButtonStyle.Danger),
     )
 
-    const confirmMessage = await message.channel.send({
+    const confirmMessage = await message.reply({
       embeds: [confirmEmbed],
       components: [rRow],
     })

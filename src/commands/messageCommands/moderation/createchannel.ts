@@ -34,7 +34,7 @@ const createChannel: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully created the channel ${newChannel}.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error creating channel:', error)
       const errorEmbed = new EmbedBuilder()
@@ -42,7 +42,7 @@ const createChannel: MessageCommand = {
         .setDescription(
           `${EMOJIS.failed} There was an error creating the channel. Please try again.`,
         )
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageChannels'],

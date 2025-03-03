@@ -23,8 +23,8 @@ interface WeatherData {
     description: string
     icon: string
   }[]
-  visibility: number
-  clouds: {
+  visibility?: number
+  clouds?: {
     all: number
   }
   sys: {
@@ -52,7 +52,19 @@ const weather: MessageCommand = {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&appid=${config.WEATHER_API_KEY}&units=metric`,
       )
-      const weatherData: WeatherData = await response.json()
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status: ${response.status}`)
+      }
+
+      const data = (await response.json()) as Partial<WeatherData>
+
+      // Validate the response structure
+      if (!data.cod || !data.main || !data.weather || !data.sys) {
+        throw new Error('Invalid API response structure')
+      }
+
+      const weatherData = data as WeatherData
 
       if (weatherData.cod !== 200) {
         const errorEmbed = new EmbedBuilder()
@@ -60,7 +72,7 @@ const weather: MessageCommand = {
           .setDescription(
             `${EMOJIS.failed} Could not find weather information for the specified location.`,
           )
-        await message.channel.send({ embeds: [errorEmbed] })
+        await message.reply({ embeds: [errorEmbed] })
         return
       }
 
@@ -69,25 +81,25 @@ const weather: MessageCommand = {
 
       const weatherEmbed = new EmbedBuilder()
         .setTitle(`Weather Information for ${weatherData.name}, ${weatherData.sys.country}`)
-        //.setColor(COLORS.blue)
+        .setColor(COLORS.blue)
         .addFields(
-          { name: 'Temperature', value: `${weatherData.main.temp}°C`, inline: true },
-          { name: 'Feels Like', value: `${weatherData.main.feels_like}°C`, inline: true },
-          { name: 'Min Temperature', value: `${weatherData.main.temp_min}°C`, inline: true },
-          { name: 'Max Temperature', value: `${weatherData.main.temp_max}°C`, inline: true },
-          { name: 'Humidity', value: `${weatherData.main.humidity}%`, inline: true },
-          { name: 'Pressure', value: `${weatherData.main.pressure} hPa`, inline: true },
-          { name: 'Wind Speed', value: `${weatherData.wind.speed} m/s`, inline: true },
-          { name: 'Visibility', value: `${weatherData.visibility} meters`, inline: true },
-          { name: 'Cloudiness', value: `${weatherData.clouds.all}%`, inline: true },
-          { name: 'Condition', value: weatherData.weather[0].description, inline: true },
-          { name: 'Sunrise', value: sunrise, inline: true },
-          { name: 'Sunset', value: sunset, inline: true },
+          { name: '🌡️ Temperature', value: `${weatherData.main.temp}°C`, inline: true },
+          { name: '🤔 Feels Like', value: `${weatherData.main.feels_like}°C`, inline: true },
+          { name: '📉 Min Temperature', value: `${weatherData.main.temp_min}°C`, inline: true },
+          { name: '📈 Max Temperature', value: `${weatherData.main.temp_max}°C`, inline: true },
+          { name: '💧 Humidity', value: `${weatherData.main.humidity}%`, inline: true },
+          { name: '🌀 Pressure', value: `${weatherData.main.pressure} hPa`, inline: true },
+          { name: '💨 Wind Speed', value: `${weatherData.wind.speed} m/s`, inline: true },
+          { name: '👀 Visibility', value: `${weatherData.visibility ?? 'N/A'} meters`, inline: true },
+          { name: '☁️ Cloudiness', value: `${weatherData.clouds?.all ?? 'N/A'}%`, inline: true },
+          { name: '🌦️ Condition', value: weatherData.weather[0].description, inline: true },
+          { name: '🌅 Sunrise', value: sunrise, inline: true },
+          { name: '🌇 Sunset', value: sunset, inline: true },
         )
         .setThumbnail(`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`)
         .setTimestamp()
 
-      await message.channel.send({ embeds: [weatherEmbed] })
+      await message.reply({ embeds: [weatherEmbed] })
     } catch (error) {
       console.error('Error fetching weather data:', error)
       const errorEmbed = new EmbedBuilder()
@@ -95,7 +107,7 @@ const weather: MessageCommand = {
         .setDescription(
           `${EMOJIS.failed} There was an error fetching the weather information. Please try again later.`,
         )
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['SendMessages'],
