@@ -90,7 +90,11 @@ const weather: MessageCommand = {
           { name: '💧 Humidity', value: `${weatherData.main.humidity}%`, inline: true },
           { name: '🌀 Pressure', value: `${weatherData.main.pressure} hPa`, inline: true },
           { name: '💨 Wind Speed', value: `${weatherData.wind.speed} m/s`, inline: true },
-          { name: '👀 Visibility', value: `${weatherData.visibility ?? 'N/A'} meters`, inline: true },
+          {
+            name: '👀 Visibility',
+            value: `${weatherData.visibility ?? 'N/A'} meters`,
+            inline: true,
+          },
           { name: '☁️ Cloudiness', value: `${weatherData.clouds?.all ?? 'N/A'}%`, inline: true },
           { name: '🌦️ Condition', value: weatherData.weather[0].description, inline: true },
           { name: '🌅 Sunrise', value: sunrise, inline: true },
