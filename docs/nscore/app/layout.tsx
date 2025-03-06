@@ -7,8 +7,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Minimal Docs Site',
-  description: 'A gorgeous minimal documentation site using Next.js App Router',
+  title: 'nsCore',
+  description: 'An informative open source discord app written by nsgpriyanshu',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

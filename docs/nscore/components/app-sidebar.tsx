@@ -1,80 +1,88 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { GalleryVerticalEnd, Search } from 'lucide-react'
-
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-} from '@/components/ui/sidebar'
+  BanIcon,
+  FileTextIcon,
+  GalleryVerticalEnd,
+  HammerIcon,
+  HouseIcon,
+  InfoIcon,
+  RocketIcon,
+  Shield,
+  ShieldIcon,
+  TerminalSquareIcon,
+} from 'lucide-react'
 
-const navItems = [
-  { title: 'Introduction', url: '/' },
-  { title: 'Getting Started', url: '/getting-started' },
-  { title: 'Components', url: '/components' },
-  { title: 'API Reference', url: '/api-reference' },
-]
+import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar'
+import { NavMain } from './nav-main'
+import { TeamSwitcher } from './team-switcher'
+import { NavNotes } from './nav-cmds'
 
-export function AppSidebar() {
-  const pathname = usePathname()
+const data = {
+  teams: [
+    {
+      name: 'nsCore',
+      logo: GalleryVerticalEnd,
+      plan: 'User Manual',
+    },
+  ],
+  navMain: [
+    {
+      title: 'Overview',
+      url: '/',
+      icon: HouseIcon,
+      isActive: true,
+    },
+    {
+      title: 'Quick Start',
+      url: '/quick-start',
+      icon: RocketIcon,
+      isActive: true,
+    },
+    {
+      title: 'Terms & Conditions',
+      url: '/terms',
+      icon: FileTextIcon,
+      isActive: true,
+    },
+    {
+      title: 'Privacy Policy',
+      url: '/privacy',
+      icon: ShieldIcon,
+      isActive: true,
+    },
+  ],
+  Commands: [
+    {
+      name: 'Universal',
+      url: '/',
+      icon: TerminalSquareIcon,
+    },
+    {
+      name: 'Infromative',
+      url: '/',
+      icon: InfoIcon,
+    },
+    {
+      name: 'Modetrative',
+      url: '/',
+      icon: HammerIcon,
+    },
+  ],
+}
 
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset">
+    <Sidebar collapsible="icon" variant="inset" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
-                <div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Docs</span>
-                  <span className="">v1.0.0</span>
-                </div>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-        <form>
-          <SidebarGroup className="py-0">
-            <SidebarGroupContent className="relative">
-              <Label htmlFor="search" className="sr-only">
-                Search
-              </Label>
-              <Input id="search" placeholder="Search the docs..." className="pl-8" />
-              <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
-            </SidebarGroupContent>
-          </SidebarGroup>
-        </form>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {navItems.map(item => (
-                <SidebarMenuItem key={item.url}>
-                  <SidebarMenuButton asChild isActive={pathname === item.url}>
-                    <Link href={item.url}>{item.title}</Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <NavMain items={data.navMain} />
+        <NavNotes notes={data.Commands} />
       </SidebarContent>
+      <SidebarRail />
     </Sidebar>
   )
 }

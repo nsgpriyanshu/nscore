@@ -1,50 +1,45 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Introduction | Minimal Docs Site',
-  description: 'Welcome to our minimal documentation site',
+  title: 'Introduction - nsCore Docs',
+  description: 'Official documentation of the nsCore Discord bot.',
 }
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-3xl">
-      <h1 className="mb-6 text-4xl font-bold">Welcome to Our Docs</h1>
+    <main className="mx-auto max-w-4xl">
+      <h1 className="mb-6 text-4xl font-bold">Introducing nsCore</h1>
       <p className="mb-4">
-        This is a gorgeous minimal documentation site built with Next.js, Tailwind CSS, and
-        shadcn/ui components.
+        Welcome to the official documentation of <strong>nsCore</strong>, an informative Discord bot
+        developed by <strong>nsgpriyansu</strong> using TypeScript, JavaScript, and discord.js!
       </p>
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Features</h2>
-      <ul className="mb-4 list-inside list-disc space-y-1">
-        <li>Clean and minimal design</li>
-        <li>Dark mode support</li>
-        <li>Responsive layout</li>
-        <li>Easy navigation with shadcn sidebar</li>
-        <li>Built with Next.js App Router</li>
-      </ul>
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Getting Started</h2>
+
+      <h2 className="mb-4 mt-8 text-2xl font-semibold">About</h2>
       <p className="mb-4">
-        To get started with our documentation, please navigate through the sections using the
-        sidebar on the left. Here&apos;s a quick overview of the available sections:
+        nsCore is designed to provide a wide range of features and commands to enhance your Discord
+        server experience. Whether you're looking for moderation tools or informational resources,
+        nsCore has you covered. With its user-friendly interface and powerful functionality, nsCore
+        aims to elevate your Discord community to the next level.
       </p>
-      <ul className="mb-4 list-inside list-disc space-y-1">
-        <li>
-          <strong>Getting Started</strong>: Learn how to install and set up our library
-        </li>
-        <li>
-          <strong>Components</strong>: Explore the available components and how to use them
-        </li>
-        <li>
-          <strong>API Reference</strong>: Detailed information about our API and its methods
-        </li>
-      </ul>
+
+      <h2 className="mb-4 mt-8 text-2xl font-semibold">Users Section</h2>
       <p className="mb-4">
-        If you have any questions or need further assistance, don&apos;t hesitate to reach out to
-        our support team.
+        This section is exclusively for end users who encounter problems while using nsCore or are
+        confused about commands. Please check out our <strong>command docs</strong> for a brief
+        description of all commands with examples!
       </p>
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Contributing</h2>
+
+      <h2 className="mb-4 mt-8 text-2xl font-semibold">Developers Section</h2>
       <p className="mb-4">
-        We welcome contributions to our documentation. If you find any errors or have suggestions
-        for improvement, please open an issue or submit a pull request on our GitHub repository.
+        As an open-source Discord bot, we believe it's important to provide a detailed developer
+        guide. Since existing guides are quite basic, we've created this comprehensive guide
+        covering everything from npm installation to command usage. Please check out the{' '}
+        <strong>dev guide</strong> here.
+      </p>
+
+      <h2 className="mb-4 mt-8 text-2xl font-semibold">Thank You</h2>
+      <p className="mb-4">
+        Thank you for using nsCore! We hope this guide assists you in your journey. Happy coding! 🚀
       </p>
     </main>
   )
