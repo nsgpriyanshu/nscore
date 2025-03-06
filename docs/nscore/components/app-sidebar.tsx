@@ -56,17 +56,17 @@ const data = {
   Commands: [
     {
       name: 'Universal',
-      url: '/',
+      url: '/commands/universal',
       icon: TerminalSquareIcon,
     },
     {
       name: 'Infromative',
-      url: '/',
+      url: '/commands/informative',
       icon: InfoIcon,
     },
     {
       name: 'Modetrative',
-      url: '/',
+      url: '/commands/moderative',
       icon: HammerIcon,
     },
   ],
