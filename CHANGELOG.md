@@ -33,14 +33,6 @@ All notable changes to this project will be documented in this file.
 - **jest:** Add jest config file ([ef5000c](https://github.com/nsgpriyanshu/nscore/commit/ef5000c8f05412e89a4c031d5aca72e306b7789d))
 - **v1.1.30-rc1:** Enhance the repo, fix #12 and #11 ([b6f4640](https://github.com/nsgpriyanshu/nscore/commit/b6f4640daed40f1d3437b456d95fa69ed5430d04))
 
-# Change Log
-
-All notable changes to this project will be documented in this file.
-
-## [Unreleased]
-
-- Initial release of the package
-
 ## [1.1.32] - 2024-07-29
 
 ### Added
