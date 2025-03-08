@@ -1,6 +1,6 @@
 import { Client, Collection, GatewayIntentBits } from 'discord.js'
 import { ExtendedClient } from './interfaces/ExtendedClient'
-import { logBrightPink } from 'nstypocolors'
+import { logSuccess } from 'nstypocolors'
 import config from './configs/botConfig'
 
 import { commandHandler } from './handlers/commandHandler'
@@ -25,5 +25,5 @@ errorHandler(client)
 
 client
   .login(config.BOT_TOKEN)
-  .then(() => logBrightPink('Successfully connected all the commands and the bot is online'))
+  .then(() => logSuccess('Successfully connected all the commands and the bot is online'))
   .catch((err: string) => console.error('Failed to login: ' + err))
