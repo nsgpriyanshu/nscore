@@ -21,7 +21,7 @@ const serverLog: MessageCommand = {
       .setTimestamp()
 
     // Send the embed with the list of servers
-    await message.channel.send({ embeds: [serverlogEmbed] })
+    await message.reply({ embeds: [serverlogEmbed] })
   },
   userPermissions: ['Administrator'],
   botPermissions: ['SendMessages'],

@@ -1,6 +1,6 @@
 {
   "name": "nscore",
-  "version": "1.1.32",
+  "version": "1.2.0",
   "description": "This is an informative open source discord app written by nsgpriyanshu",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -18,7 +18,7 @@
     "noCleanStart": "npm run build && npm run start",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "release": "semantic-release"
+    "release": "cliff-jumper"
   },
   "keywords": [
     "nsCore",
@@ -40,7 +40,7 @@
     "@types/ws": "^8.5.10",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
-    "discord.js": "^14.15.3",
+    "discord.js": "^14.18.0",
     "dotenv": "^16.4.5",
     "greetify": "^2.0.1",
     "jest": "^29.7.0",
@@ -53,6 +53,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.2.2",
+    "@favware/cliff-jumper": "^6.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
@@ -64,5 +65,3 @@
     "semantic-release": "^24.1.0"
   }
 }
-
-

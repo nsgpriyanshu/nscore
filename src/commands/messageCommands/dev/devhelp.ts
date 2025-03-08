@@ -70,7 +70,7 @@ const devHelp: MessageCommand = {
     )
 
     // Send initial embed with buttons
-    const sentMessage = await message.channel.send({
+    const sentMessage = await message.reply({
       embeds: [devEmbed],
       components: [hR],
     })

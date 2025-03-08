@@ -15,7 +15,7 @@ const announce: MessageCommand = {
         .setDescription(
           `${EMOJIS.caution} Usage: \`${BOT.PREFIX}announce <#channel> <color> <title> <message>\``,
         )
-      await message.channel.send({ embeds: [usageEmbed] })
+      await message.reply({ embeds: [usageEmbed] })
       return
     }
 
@@ -66,7 +66,7 @@ const announce: MessageCommand = {
     const confirmEmbed = new EmbedBuilder()
       .setColor(COLORS.green)
       .setDescription(`${EMOJIS.success} Announcement sent to ${channel}.`)
-    await message.channel.send({ embeds: [confirmEmbed] })
+    await message.reply({ embeds: [confirmEmbed] })
   },
   userPermissions: ['Administrator'],
   botPermissions: ['SendMessages'],

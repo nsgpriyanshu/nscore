@@ -34,13 +34,13 @@ const deleterole: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully deleted the role ${role.name}.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error deleting role:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setDescription(`${EMOJIS.failed} There was an error deleting the role. Please try again.`)
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageRoles'],

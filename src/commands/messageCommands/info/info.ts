@@ -61,7 +61,7 @@ const userinfo: MessageCommand = {
       )
       .setThumbnail(user.user.avatarURL())
 
-    await message.channel.send({ embeds: [userInfoEmbed] })
+    await message.reply({ embeds: [userInfoEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

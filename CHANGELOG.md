@@ -1,10 +1,37 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+# [1.2.0](https://github.com/nsgpriyanshu/nscore/tree/1.2.0) - (2025-03-08)
 
-- Initial release of the package
+## Bug Fixes
+
+- Soem bugs ([4ba56d3](https://github.com/nsgpriyanshu/nscore/commit/4ba56d3064a6418037d4ea1e757a8ceb155ffbfc))
+
+## Continuous Integration
+
+- Fix the intendation bug ([537ad0b](https://github.com/nsgpriyanshu/nscore/commit/537ad0b61ee6d733c56292e01eb4391f4baa76c8))
+- Change the workflow name ([461012e](https://github.com/nsgpriyanshu/nscore/commit/461012ea95523863e931aa56c8570ebe91bfa24e))
+- Update the auto-merger workflow ([7a99372](https://github.com/nsgpriyanshu/nscore/commit/7a99372e8033ef8399b48c14fd31f5c6c753f052))
+
+## Documentation
+
+- Add command pages ([4c4e743](https://github.com/nsgpriyanshu/nscore/commit/4c4e743c7c6b27c59a247a89087424eed0ff0be8))
+- **core:** Add preview image for seo optimization ([21366ab](https://github.com/nsgpriyanshu/nscore/commit/21366ab99db2c1298b895f250646c1d6955d80f3))
+
+## Features
+
+- Nscore docs v2 ([725a8bf](https://github.com/nsgpriyanshu/nscore/commit/725a8bfa9e8ec8f6ec3bfe52553c5526f00829cd))
+- Docs final version ([6db75df](https://github.com/nsgpriyanshu/nscore/commit/6db75dfb2272c048d4c23f7f8b33179d7193bee3))
+- Add main section, home scetion of docs v2 ([dd08ae6](https://github.com/nsgpriyanshu/nscore/commit/dd08ae616cf9cc8f3daff42859249535c7d7ed5e))
+- Init docs using nextjs and shadcn ([8855aac](https://github.com/nsgpriyanshu/nscore/commit/8855aaca60f1fdc2e13895244c7dfa537b2d82dd))
+- Init remote repo ([e8299b7](https://github.com/nsgpriyanshu/nscore/commit/e8299b7caf6749ee14b56a82b9286f11859ece4a))
+- Add new tests with jest and fixed some bugs ([c42879e](https://github.com/nsgpriyanshu/nscore/commit/c42879eb1c6bf17f03e1beab6a53db99ccdcc5f1))
+
+## Non Code changes
+
+- **jest:** Add jest config file ([ef5000c](https://github.com/nsgpriyanshu/nscore/commit/ef5000c8f05412e89a4c031d5aca72e306b7789d))
+- **v1.1.30-rc1:** Enhance the repo, fix #12 and #11 ([b6f4640](https://github.com/nsgpriyanshu/nscore/commit/b6f4640daed40f1d3437b456d95fa69ed5430d04))
 
 ## [1.1.32] - 2024-07-29
 

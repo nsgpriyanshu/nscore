@@ -50,13 +50,13 @@ const removerole: MessageCommand = {
         .setDescription(
           `${EMOJIS.success} Successfully removed the role ${role.name} from ${member.displayName}.`,
         )
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error removing role:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setDescription(`${EMOJIS.failed} There was an error removing the role. Please try again.`)
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageRoles'],

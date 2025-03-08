@@ -35,7 +35,7 @@ const updateEmoji: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully updated the emoji name to \`${newName}\`.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error updating emoji name:', error)
       const errorEmbed = new EmbedBuilder()
@@ -43,7 +43,7 @@ const updateEmoji: MessageCommand = {
         .setDescription(
           `${EMOJIS.failed} There was an error updating the emoji name. Please try again.`,
         )
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageEmojisAndStickers'],

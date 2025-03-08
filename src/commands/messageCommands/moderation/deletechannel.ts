@@ -36,7 +36,7 @@ const deleteChannel: MessageCommand = {
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
         .setDescription(`${EMOJIS.success} Successfully deleted the channel ${channel.name}.`)
-      await message.channel.send({ embeds: [successEmbed] })
+      await message.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error deleting channel:', error)
       const errorEmbed = new EmbedBuilder()
@@ -44,7 +44,7 @@ const deleteChannel: MessageCommand = {
         .setDescription(
           `${EMOJIS.failed} There was an error deleting the channel. Please try again.`,
         )
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['ManageChannels'],

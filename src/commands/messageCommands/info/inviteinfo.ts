@@ -41,7 +41,7 @@ const inviteInfo: MessageCommand = {
           },
         )
 
-      await message.channel.send({ embeds: [inviteEmbed] })
+      await message.reply({ embeds: [inviteEmbed] })
     } catch (error) {
       console.error('Error fetching invite:', error)
       const errorEmbed = new EmbedBuilder()
@@ -49,7 +49,7 @@ const inviteInfo: MessageCommand = {
         .setDescription(
           `${EMOJIS.failed} There was an error fetching the invite. Please make sure the invite code is correct and try again.`,
         )
-      await message.channel.send({ embeds: [errorEmbed] })
+      await message.reply({ embeds: [errorEmbed] })
     }
   },
   userPermissions: ['SendMessages'],

@@ -11,7 +11,7 @@ const ping: MessageCommand = {
       .setTitle('ping Command')
       .setDescription(`${EMOJIS.success} Ping pong ping`)
 
-    await message.channel.send({ embeds: [pingEmbed] })
+    await message.reply({ embeds: [pingEmbed] })
   },
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],
