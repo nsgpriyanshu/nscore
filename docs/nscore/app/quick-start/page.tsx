@@ -51,21 +51,12 @@ export default function GettingStarted() {
         However, we plan to introduce full slash command support soon!
       </p>
 
-      <h2 className="mb-4 mt-8 text-2xl font-semibold">Navigation</h2>
+      {/* <h2 className="mb-4 mt-8 text-2xl font-semibold">Navigation</h2>
       <div className="flex flex-wrap gap-4">
-        <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform">
-          Installation
-        </Button>
-        <Button className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform">
-          Permissions
-        </Button>
-        <Button className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform">
-          Message Commands
-        </Button>
-        <Button className="bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform">
-          Slash Commands
-        </Button>
-      </div>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="secondary">Secondary</Button>
+      </div> */}
 
       <h2 className="mb-4 mt-8 text-2xl font-semibold">Thank You</h2>
       <p className="mb-4">We hope this documentation helps you! Happy using!</p>

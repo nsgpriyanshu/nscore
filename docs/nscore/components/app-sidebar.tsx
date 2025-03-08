@@ -14,17 +14,24 @@ import {
   TerminalSquareIcon,
 } from 'lucide-react'
 
-import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarRail,
+} from '@/components/ui/sidebar'
 import { NavMain } from './nav-main'
 import { TeamSwitcher } from './team-switcher'
 import { NavNotes } from './nav-cmds'
+import { NavUser } from './nav-user'
 
 const data = {
   teams: [
     {
       name: 'nsCore',
       logo: GalleryVerticalEnd,
-      plan: 'User Manual',
+      plan: 'v1.2.0 - Documentation',
     },
   ],
   navMain: [
@@ -82,6 +89,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
         <NavNotes notes={data.Commands} />
       </SidebarContent>
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

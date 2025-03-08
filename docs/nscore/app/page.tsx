@@ -1,3 +1,5 @@
+import SiteFooter from '@/components/site-footer'
+import { RocketIcon } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -39,8 +41,11 @@ export default function Home() {
 
       <h2 className="mb-4 mt-8 text-2xl font-semibold">Thank You</h2>
       <p className="mb-4">
-        Thank you for using nsCore! We hope this guide assists you in your journey. Happy coding! 🚀
+        Thank you for using nsCore! We hope this guide assists you in your journey. Happy coding!
+        <RocketIcon />
       </p>
+
+      <SiteFooter />
     </main>
   )
 }
