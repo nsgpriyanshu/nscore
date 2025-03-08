@@ -87,8 +87,7 @@ For full details, check out our [docs](https://nsgpriyanshu.github.io/nsdocs).
 
 - [TypeScript](https://www.typescriptlang.org/) for enhanced type safety and maintainability
 - [Discord.js](https://discord.js.org/) the most powerful and popular Discord library
-- [Nextra](https://nextra.site/) simple, powerful and flexible site generation framework
-  with everything you love from Next.js
+- [Shadcn](https://nextra.site/) A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks.
 
 ## Links
 

@@ -18,7 +18,7 @@
     "noCleanStart": "npm run build && npm run start",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "release": "semantic-release"
+    "release": "cliff-jumper"
   },
   "keywords": [
     "nsCore",
@@ -53,6 +53,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.2.2",
+    "@favware/cliff-jumper": "^6.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
