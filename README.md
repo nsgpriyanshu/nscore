@@ -2,7 +2,7 @@
 
 # nsCore
 
-<img src="public/nscorebotbrand.png" alt="nsgpriyanshu" width="90%" height="90%"/>
+<img src="docs/public/nscorebot.png" alt="nsgpriyanshu" width="90%" height="90%"/>
 
 ![Version](https://img.shields.io/github/package-json/v/nsgpriyanshu/nscore?color=ff3b30)
 [![Discord](https://img.shields.io/discord/855781247480496130.svg?color=5865F2&logo=discord&logoColor=white)](https://discord.gg/7SAcEv7MDd)
