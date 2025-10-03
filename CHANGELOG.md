@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.2.1](https://github.com/nsgpriyanshu/nscore/compare/1.2.0...1.2.1) - (2025-10-03)
+
+## Bug Fixes
+
+- Update dependancies and some minor chnages ([82938b7](https://github.com/nsgpriyanshu/nscore/commit/82938b7700b36c8f01c39752e8a3180c1f29c0db))
+- All the small minor bugs ([f867ec4](https://github.com/nsgpriyanshu/nscore/commit/f867ec48d40b41b0cb498d7b15f3defdb494193c))
+
+## Documentation
+
+- Update readme page ([cea48c5](https://github.com/nsgpriyanshu/nscore/commit/cea48c55423b96cdef1ee2ecaad9c8a637b59b0f))
+
+## Non Code changes
+
+- Lol. hahahahahahahahahah, enjoy the new version of docs ([4918983](https://github.com/nsgpriyanshu/nscore/commit/491898321932d0ef8d7c477b95494cff706de7b0))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 # [1.2.0](https://github.com/nsgpriyanshu/nscore/tree/1.2.0) - (2025-03-08)
 
 ## Bug Fixes
