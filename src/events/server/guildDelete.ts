@@ -9,13 +9,14 @@ export const guildDeleteHandler = (client: ExtendedClient) => {
     const GateChannelId = config.GATE_CHANNEL
     const GateChannel = client.channels.cache.get(GateChannelId) as TextChannel
 
-    logger.log(
+    logger.info(
+      'GuildDelete',
       `Left a guild: ${guild.name} (id: ${guild.id}). This guild had ${guild.memberCount} members!`,
     )
 
     // Create embed message
     const serverRemoveEmbed = new EmbedBuilder()
-      .setTitle('Left form a server')
+      .setTitle('Left from a server')
       .setColor(COLORS.red)
       .setDescription(`${EMOJIS.failed} Left a guild: ${guild.name}`)
       .addFields({ name: 'Guild ID', value: guild.id, inline: true })
@@ -26,7 +27,10 @@ export const guildDeleteHandler = (client: ExtendedClient) => {
     if (GateChannel && GateChannel.isTextBased()) {
       await GateChannel.send({ embeds: [serverRemoveEmbed] })
     } else {
-      logger.error(`Gate channel with ID ${GateChannelId} not found or is not a text channel.`)
+      logger.error(
+        'GuildDelete',
+        `Gate channel with ID ${GateChannelId} not found or is not a text channel.`,
+      )
     }
   })
 }

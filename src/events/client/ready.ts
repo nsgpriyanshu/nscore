@@ -1,11 +1,11 @@
-import { logSuccess } from 'nstypocolors'
+import { logDefault } from 'nstypocolors'
 import { ExtendedClient } from '../../interfaces/ExtendedClient'
 import { ActivityType } from 'discord.js'
 import { BOT } from '../../configs/metadata'
 
 export const registerReadyEvent = (client: ExtendedClient) => {
   client.once('ready', () => {
-    logSuccess(`Successfully connected both Message & Slash clients ${client.user?.tag}!`)
+    logDefault(`Successfully connected both Message & Slash clients ${client.user?.tag}!`)
 
     client.user?.setPresence({
       activities: [

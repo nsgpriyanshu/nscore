@@ -11,14 +11,16 @@ import config from '../../configs/botConfig'
 import { COLORS, EMOJIS } from '../../constants/botConst'
 
 export const eventHandlerInteraction = (client: ExtendedClient) => {
+  const scope = 'SlashCommand'
+
   client.on('interactionCreate', async (interaction: Interaction) => {
     if (!interaction.isCommand() || !interaction.guildId) return
 
     const commandName = interaction.commandName
-    const command = client.slashCommands.get(commandName) // Use slashCommands collection
+    const command = client.slashCommands.get(commandName)
 
     if (!command) {
-      logger.warn(`Command not found: ${commandName}`)
+      logger.warn(scope, `Command not found: ${commandName}`)
       return
     }
 
@@ -36,6 +38,7 @@ export const eventHandlerInteraction = (client: ExtendedClient) => {
           `${EMOJIS.caution} You don't have the required permissions to use this commandz`,
         )
         .setTimestamp()
+
       await interaction.reply({ embeds: [userPermEmbed], ephemeral: true })
       return
     }
@@ -53,31 +56,36 @@ export const eventHandlerInteraction = (client: ExtendedClient) => {
           `${EMOJIS.caution} I don't have the required permissions to run this command`,
         )
         .setTimestamp()
+
       await interaction.reply({ embeds: [botPermEmbed], ephemeral: true })
       return
     }
 
-    // Check if the command is owner only
+    // Check if the command is developer-only
     if (command.devOnly && !config.DEVELOPER_IDS.includes(interaction.user.id)) {
       const devOnlyEmbed = new EmbedBuilder()
         .setColor(COLORS.yellow)
         .setTitle('You cannot use this command!')
         .setDescription(`${EMOJIS.caution} This command is only for developers.`)
         .setTimestamp()
+
       await interaction.reply({ embeds: [devOnlyEmbed], ephemeral: true })
       return
     }
 
     try {
       await command.executeSlash(interaction as ChatInputCommandInteraction, client)
+      logger.success(scope, `Executed slash command: /${commandName}`)
     } catch (error) {
-      logger.error(`Error executing command: ${commandName} - ${error}`)
-      console.log(error)
+      logger.error(scope, `Error executing slash command: /${commandName}`)
+      console.error(error)
+
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setTitle('Oops!')
         .setDescription(`${EMOJIS.failed} There was an error trying to execute that command!`)
         .setTimestamp()
+
       await interaction.reply({ embeds: [errorEmbed], ephemeral: true })
     }
   })

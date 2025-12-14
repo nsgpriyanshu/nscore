@@ -29,6 +29,7 @@ const loadSlashCommands = (dirs: string[]): Promise<SlashCommandJSON[]> => {
         } else if (extname(file) === '.ts' || extname(file) === '.js') {
           const commandModule = await import(filePath)
           const command = commandModule.default
+
           if (command && command.data instanceof SlashCommandBuilder) {
             commands.push(command.data.toJSON())
           }
@@ -36,7 +37,6 @@ const loadSlashCommands = (dirs: string[]): Promise<SlashCommandJSON[]> => {
       }
     }
 
-    // Load commands from each included directory
     Promise.all(dirs.map(dir => loadCommandsFromDir(dir)))
       .then(() => resolve(commands))
       .catch(reject)
@@ -50,17 +50,20 @@ const absoluteIncludeDirectories = includeDirectories.map(dir => join(__dirname,
 loadSlashCommands(absoluteIncludeDirectories)
   .then(commands => {
     const rest = new REST({ version: '10' }).setToken(config.BOT_TOKEN!)
-    logger.log('Started refreshing application (/) commands.')
 
-    return rest.put(Routes.applicationCommands(config.BOT_ID!), { body: commands })
+    logger.info('DeployCommands', 'Started refreshing application (/) commands.')
+
+    return rest.put(Routes.applicationCommands(config.BOT_ID!), {
+      body: commands,
+    })
   })
   .then(() => {
-    logger.log('Successfully reloaded application (/) commands.')
+    logger.success('DeployCommands', 'Successfully reloaded application (/) commands.')
   })
   .catch(error => {
     if (error instanceof Error) {
-      logger.error(`Error registering commands: ${error.message}`)
+      logger.error('DeployCommands', `Error registering commands: ${error.message}`)
     } else {
-      logger.error('Unknown error occurred while registering commands.')
+      logger.error('DeployCommands', 'Unknown error occurred while registering commands.')
     }
   })

@@ -6,6 +6,8 @@ import { COLORS, EMOJIS } from '../../constants/botConst'
 import { Minimal } from 'greetify'
 
 export const guildMemberRemoveHandler = (client: ExtendedClient) => {
+  const scope = 'GuildMemberRemove'
+
   client.on('guildMemberRemove', async (member: GuildMember | PartialGuildMember) => {
     const welcomeChannelId = config.WELCOME_CHANNEL
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId) as TextChannel
@@ -43,8 +45,11 @@ export const guildMemberRemoveHandler = (client: ExtendedClient) => {
         ],
         embeds: [leaveEmbed],
       })
+
+      logger.info(scope, `${member.user.username} left the server`)
     } else {
       logger.error(
+        scope,
         `Welcome channel with ID ${welcomeChannelId} not found or is not a text channel.`,
       )
     }

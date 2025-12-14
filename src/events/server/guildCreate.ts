@@ -5,12 +5,15 @@ import config from '../../configs/botConfig'
 import { COLORS, EMOJIS } from '../../constants/botConst'
 
 export const guildCreateHandler = (client: ExtendedClient) => {
-  client.on('guildCreate', async (guild: Guild) => {
-    const GateChannelId = config.GATE_CHANNEL
-    const GateChannel = client.channels.cache.get(GateChannelId) as TextChannel
+  const scope = 'GuildCreate'
 
-    logger.log(
-      `Joined a new guild: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`,
+  client.on('guildCreate', async (guild: Guild) => {
+    const gateChannelId = config.GATE_CHANNEL
+    const gateChannel = client.channels.cache.get(gateChannelId) as TextChannel
+
+    logger.info(
+      scope,
+      `Joined new guild: ${guild.name} (ID: ${guild.id}) | Members: ${guild.memberCount}`,
     )
 
     // Create embed message
@@ -23,10 +26,13 @@ export const guildCreateHandler = (client: ExtendedClient) => {
       .setTimestamp()
 
     // Send embed message to the join gate channel
-    if (GateChannel && GateChannel.isTextBased()) {
-      await GateChannel.send({ embeds: [serverAddEmbed] })
+    if (gateChannel && gateChannel.isTextBased()) {
+      await gateChannel.send({ embeds: [serverAddEmbed] })
     } else {
-      logger.error(`Join gate channel with ID ${GateChannelId} not found or is not a text channel.`)
+      logger.error(
+        scope,
+        `Join gate channel with ID ${gateChannelId} not found or is not a text channel.`,
+      )
     }
   })
 }

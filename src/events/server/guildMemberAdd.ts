@@ -11,17 +11,15 @@ export const guildMemberAddHandler = (client: ExtendedClient) => {
     const welcomeChannel = member.guild.channels.cache.get(welcomeChannelId) as TextChannel
     const welcomeMessage = `YOU ARE ${member.guild.memberCount}TH MEMBER`
 
-    // Create embed message
+    // Create embed card
     const card = await Minimal({
       name: member.user.username,
-      avatar: member.user.displayAvatarURL({
-        size: 4096,
-      }),
+      avatar: member.user.displayAvatarURL({ size: 4096 }),
       type: 'WELCOME',
       message: welcomeMessage,
     })
 
-    // Create embed message
+    // Create welcome embed
     const welcomeEmbed = new EmbedBuilder()
       .setTitle('Welcome to the server!')
       .setColor(COLORS.pink)
@@ -31,18 +29,16 @@ export const guildMemberAddHandler = (client: ExtendedClient) => {
       .setThumbnail(member.user.displayAvatarURL())
       .setTimestamp()
 
-    // Send embed message to the welcome channel
+    // Send embed to the welcome channel
     if (welcomeChannel && welcomeChannel.isTextBased()) {
       await welcomeChannel.send({
-        files: [
-          {
-            attachment: card,
-          },
-        ],
+        files: [{ attachment: card }],
         embeds: [welcomeEmbed],
       })
+      logger.info('GuildMemberAdd', `Sent welcome message for ${member.user.tag}`)
     } else {
       logger.error(
+        'GuildMemberAdd',
         `Welcome channel with ID ${welcomeChannelId} not found or is not a text channel.`,
       )
     }

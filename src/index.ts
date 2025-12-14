@@ -1,11 +1,13 @@
 import { Client, Collection, GatewayIntentBits } from 'discord.js'
 import { ExtendedClient } from './interfaces/ExtendedClient'
-import { logSuccess } from 'nstypocolors'
+import { logBackPastelGreen, logDefault, logPastelGreen } from 'nstypocolors'
 import config from './configs/botConfig'
 
 import { commandHandler } from './handlers/commandHandler'
 import { eventHandlers } from './events/eventIndex'
 import errorHandler from './handlers/errorHandler'
+
+const timestamp = () => new Date().toLocaleTimeString()
 
 const client = new Client({
   intents: [
@@ -25,5 +27,5 @@ errorHandler(client)
 
 client
   .login(config.BOT_TOKEN)
-  .then(() => logSuccess('Successfully connected all the commands and the bot is online'))
+  .then(() => logDefault(`[${timestamp()}] [OUTPUT] Discord Bot is Operational!`))
   .catch((err: string) => console.error('Failed to login: ' + err))
