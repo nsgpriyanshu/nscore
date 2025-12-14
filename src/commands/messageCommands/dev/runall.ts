@@ -1,7 +1,7 @@
-import { Message } from 'discord.js'
+import { Message, EmbedBuilder } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
-import { EMOJIS } from '../../../constants/botConst'
+import { EMOJIS, COLORS } from '../../../constants/botConst'
 
 const runall: MessageCommand = {
   name: 'runall',
@@ -15,8 +15,7 @@ const runall: MessageCommand = {
 
     for (const [name, cmd] of client.messageCommands) {
       try {
-        // Simulate command execution
-        // Use empty args or some default test args
+        // Execute command with default test args
         await cmd.executeMessage(message, ['test'], client)
         successCommands.push(name)
       } catch (error) {
@@ -24,12 +23,27 @@ const runall: MessageCommand = {
       }
     }
 
-    const resultMessage = `**Test Results:**\n${EMOJIS.success} Success: ${successCommands.length}\n${EMOJIS.failed} Failed: ${failedCommands.length}`
+    // Embed for the summary
+    const summaryEmbed = new EmbedBuilder()
+      .setTitle(`${EMOJIS.devlopers} Message Commands Test Results`)
+      .setColor(COLORS.blue)
+      .addFields(
+        { name: `${EMOJIS.success} Success`, value: `${successCommands.length}`, inline: true },
+        { name: `${EMOJIS.failed} Failed`, value: `${failedCommands.length}`, inline: true },
+      )
+      .setTimestamp()
 
-    await message.reply(resultMessage)
+    await message.reply({ embeds: [summaryEmbed] })
 
+    // If any failed commands, list them in another embed
     if (failedCommands.length > 0) {
-      await message.reply('**Failed Commands:**\n' + failedCommands.join('\n'))
+      const failedEmbed = new EmbedBuilder()
+        .setTitle(`${EMOJIS.failed} Failed Commands`)
+        .setColor(COLORS.red)
+        .setDescription(failedCommands.join('\n'))
+        .setTimestamp()
+
+      await message.reply({ embeds: [failedEmbed] })
     }
   },
 }
