@@ -4,8 +4,8 @@
 
 We release patches for security vulnerabilities in the following versions. If you are not using a supported version, please upgrade to the latest stable version.
 
-| Version  | Supported |
-| -------- | --------- |
+| Version | Supported |
+| ------- | --------- |
 | 1.2.0   | ✅        |
 | < 1.2.0 | ❌        |
 
