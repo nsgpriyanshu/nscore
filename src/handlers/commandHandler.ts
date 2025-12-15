@@ -4,7 +4,6 @@ import { join } from 'path'
 import { Command } from '../interfaces/Command'
 import { ExtendedClient } from '../interfaces/ExtendedClient'
 import { logger } from '../utils/logger'
-import { logPastelGreen } from 'nstypocolors'
 
 export const commandHandler = (client: ExtendedClient) => {
   const scope = 'CommandLoader'
@@ -17,6 +16,9 @@ export const commandHandler = (client: ExtendedClient) => {
   let messageCount = 0
   let warnCount = 0
 
+  /* ────────────────────────────────────────────── */
+  /* Slash Commands Loader */
+  /* ────────────────────────────────────────────── */
   const loadSlashCommands = (dir: string) => {
     for (const file of readdirSync(dir)) {
       const filePath = join(dir, file)
@@ -32,8 +34,8 @@ export const commandHandler = (client: ExtendedClient) => {
       try {
         const command: Command = require(filePath).default
 
-        if (typeof command.executeSlash !== 'function') {
-          logger.warn(scope, `Missing executeSlash → ${filePath}`)
+        if (!('executeSlash' in command)) {
+          logger.warn(scope, `Invalid slash command → ${filePath}`)
           warnCount++
           continue
         }
@@ -41,13 +43,16 @@ export const commandHandler = (client: ExtendedClient) => {
         client.slashCommands.set(command.name, command)
         slashCount++
         logger.success(scope, `Slash loaded: ${command.name}`)
-      } catch (err) {
+      } catch (error) {
         logger.error(scope, `Failed to load slash command → ${filePath}`)
         warnCount++
       }
     }
   }
 
+  /* ────────────────────────────────────────────── */
+  /* Message Commands Loader */
+  /* ────────────────────────────────────────────── */
   const loadMessageCommands = (dir: string) => {
     for (const file of readdirSync(dir)) {
       const filePath = join(dir, file)
@@ -63,8 +68,8 @@ export const commandHandler = (client: ExtendedClient) => {
       try {
         const command: Command = require(filePath).default
 
-        if (typeof command.executeMessage !== 'function') {
-          logger.warn(scope, `Missing executeMessage → ${filePath}`)
+        if (!('executeMessage' in command)) {
+          logger.warn(scope, `Invalid message command → ${filePath}`)
           warnCount++
           continue
         }
@@ -72,28 +77,27 @@ export const commandHandler = (client: ExtendedClient) => {
         client.messageCommands.set(command.name, command)
         messageCount++
         logger.success(scope, `Message loaded: ${command.name}`)
-      } catch (err) {
+      } catch (error) {
         logger.error(scope, `Failed to load message command → ${filePath}`)
         warnCount++
       }
     }
   }
 
+  /* ────────────────────────────────────────────── */
+  /* Load All Commands */
+  /* ────────────────────────────────────────────── */
   loadSlashCommands(join(__dirname, '../commands/slashCommands'))
   loadMessageCommands(join(__dirname, '../commands/messageCommands'))
 
-  // Summary table for command counts
-  const summaryTable = [
-    { Type: 'Slash', Loaded: slashCount },
-    { Type: 'Message', Loaded: messageCount },
-  ]
-
-  logger.info(scope, 'Command loading summary')
-  logger.info(scope, '+------------+-------+')
-  summaryTable.forEach(row => {
-    logger.info(scope, `| ${row.Type.padEnd(10)} | ${row.Loaded.toString().padStart(5)} |`)
-  })
-  logger.info(scope, '+------------+-------+')
+  /* ────────────────────────────────────────────── */
+  /* Summary Table */
+  /* ────────────────────────────────────────────── */
+  logger.build(scope, 'Command loading summary')
+  logger.build(scope, '+------------+-------+')
+  logger.build(scope, `| ${'Slash'.padEnd(10)} | ${slashCount.toString().padStart(5)} |`)
+  logger.build(scope, `| ${'Message'.padEnd(10)} | ${messageCount.toString().padStart(5)} |`)
+  logger.build(scope, '+------------+-------+')
 
   if (warnCount > 0) {
     logger.warn(scope, `Warnings during load: ${warnCount}`)

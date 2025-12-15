@@ -3,8 +3,7 @@ import { ExtendedClient } from '../../interfaces/ExtendedClient'
 import { logger } from '../../utils/logger'
 import { BOT } from '../../configs/metadata'
 import config from '../../configs/botConfig'
-import { COLORS } from '../../constants/botConst'
-import { EMOJIS } from '../../constants/botConst'
+import { COLORS, EMOJIS } from '../../constants/botConst'
 
 export const eventHandlerMessage = (client: ExtendedClient) => {
   const scope = 'MessageCommand'
@@ -19,81 +18,74 @@ export const eventHandlerMessage = (client: ExtendedClient) => {
 
     const command = client.messageCommands.get(commandName)
 
-    if (!command) {
+    if (!command || !('executeMessage' in command)) {
       logger.warn(scope, `Command not found: ${commandName}`)
 
       const unknownCommand = new EmbedBuilder()
         .setColor(COLORS.red)
-        .setTitle(`You cannot use this command!`)
+        .setTitle('You cannot use this command!')
         .setDescription(`${EMOJIS.failed} There is no command like this`)
         .setTimestamp()
 
       return message.reply({ embeds: [unknownCommand] })
     }
 
-    // Check user permissions
+    // User permissions
     if (
       command.userPermissions &&
       !message.member?.permissions.has(PermissionsBitField.resolve(command.userPermissions))
     ) {
-      const userPermEmbed = new EmbedBuilder()
+      const embed = new EmbedBuilder()
         .setColor(COLORS.yellow)
-        .setTitle(`You cannot use this command!`)
-        .setDescription(
-          `${EMOJIS.caution} You don't have the required permissions to use this command`,
-        )
+        .setTitle('You cannot use this command!')
+        .setDescription(`${EMOJIS.caution} Missing required permissions`)
         .setTimestamp()
 
-      return message.reply({ embeds: [userPermEmbed] })
+      return message.reply({ embeds: [embed] })
     }
 
-    if (!client.user) {
-      logger.error(scope, 'Client user is null')
-      return
-    }
+    if (!client.user) return
 
-    // Check bot permissions
+    // Bot permissions
     if (
       command.botPermissions &&
       !message.guild.members.cache
         .get(client.user.id)
         ?.permissions.has(PermissionsBitField.resolve(command.botPermissions))
     ) {
-      const botPermEmbed = new EmbedBuilder()
+      const embed = new EmbedBuilder()
         .setColor(COLORS.yellow)
-        .setTitle(`I cannot use this command!`)
-        .setDescription(
-          `${EMOJIS.caution} I don't have the required permissions to run this command`,
-        )
+        .setTitle('I cannot use this command!')
+        .setDescription(`${EMOJIS.caution} I lack required permissions`)
         .setTimestamp()
 
-      return message.reply({ embeds: [botPermEmbed] })
+      return message.reply({ embeds: [embed] })
     }
 
-    // Check if the command is developer-only
+    // Dev-only
     if (command.devOnly && !config.DEVELOPER_IDS.includes(message.author.id)) {
-      const devOnlyEmbed = new EmbedBuilder()
+      const embed = new EmbedBuilder()
         .setColor(COLORS.yellow)
-        .setTitle(`You cannot use this command!`)
-        .setDescription(`${EMOJIS.caution} This command is only for developers`)
+        .setTitle('Restricted command')
+        .setDescription(`${EMOJIS.caution} Developers only`)
         .setTimestamp()
 
-      return message.reply({ embeds: [devOnlyEmbed] })
+      return message.reply({ embeds: [embed] })
     }
 
     try {
       await command.executeMessage(message, args, client)
-      logger.success(scope, `Executed command: ${commandName}`)
+      logger.success(scope, `Executed: ${commandName}`)
     } catch (error) {
-      logger.error(scope, `Error executing command: ${commandName}`)
+      logger.error(scope, `Execution failed: ${commandName}`)
       console.error(error)
 
-      const eE = new EmbedBuilder()
+      const embed = new EmbedBuilder()
         .setColor(COLORS.red)
-        .setTitle('Opps!')
-        .setDescription(`${EMOJIS.failed} There was an error trying to run that command!`)
+        .setTitle('Oops!')
+        .setDescription(`${EMOJIS.failed} Something went wrong`)
 
-      await message.reply({ embeds: [eE] })
+      await message.reply({ embeds: [embed] })
     }
   })
 }

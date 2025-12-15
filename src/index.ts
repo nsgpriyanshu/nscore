@@ -1,6 +1,6 @@
 import { Client, Collection, GatewayIntentBits } from 'discord.js'
 import { ExtendedClient } from './interfaces/ExtendedClient'
-import { logBackPastelGreen, logDefault, logPastelGreen } from 'nstypocolors'
+import { logBuild } from 'nstypocolors'
 import config from './configs/botConfig'
 
 import { commandHandler } from './handlers/commandHandler'
@@ -27,5 +27,5 @@ errorHandler(client)
 
 client
   .login(config.BOT_TOKEN)
-  .then(() => logDefault(`[${timestamp()}] [OUTPUT] Discord Bot is Operational!`))
+  .then(() => logBuild(`[${timestamp()}] [OUTPUT] Discord Bot is Operational!`))
   .catch((err: string) => console.error('Failed to login: ' + err))

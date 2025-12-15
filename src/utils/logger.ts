@@ -1,6 +1,6 @@
-import { logInfo, logError, logSuccess, logWarning, logDefault } from 'nstypocolors'
+import { logInfo, logError, logSuccess, logWarn, logBuild } from 'nstypocolors'
 
-type LogLevel = 'INFO' | 'SUCCESS' | 'WARN' | 'ERROR' | 'DEBUG'
+type LogLevel = 'INFO' | 'SUCCESS' | 'WARN' | 'ERROR' | 'BUILD' | 'DEBUG'
 
 const timestamp = () => new Date().toLocaleTimeString()
 
@@ -15,7 +15,7 @@ export const logger = {
     logSuccess(format('SUCCESS', scope, message))
   },
   warn(scope: string, message: string) {
-    logWarning(format('WARN', scope, message))
+    logWarn(format('WARN', scope, message))
   },
   error(scope: string, message: string) {
     logError(format('ERROR', scope, message))
@@ -23,12 +23,16 @@ export const logger = {
   debug(scope: string, message: string) {
     logInfo(format('DEBUG', scope, message))
   },
+  build(scope: string, message: string) {
+    logBuild(format('BUILD', scope, message))
+  },
+
   timer(label: string) {
     const start = process.hrtime.bigint()
     return () => {
       const end = process.hrtime.bigint()
       const ms = Number(end - start) / 1_000_000
-      logInfo(`[${timestamp()}] [TIMER] ${label} completed in ${ms.toFixed(2)}ms`)
+      logBuild(`[${timestamp()}] [TIMER] ${label} completed in ${ms.toFixed(2)}ms`)
     }
   },
 }

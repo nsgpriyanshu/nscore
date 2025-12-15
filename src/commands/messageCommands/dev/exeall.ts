@@ -3,8 +3,8 @@ import { MessageCommand } from '../../../interfaces/Command'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
 import { EMOJIS, COLORS } from '../../../constants/botConst'
 
-const runall: MessageCommand = {
-  name: 'runall',
+const exeall: MessageCommand = {
+  name: 'exeall',
   description: 'Test all message commands in the server',
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],
@@ -48,4 +48,4 @@ const runall: MessageCommand = {
   },
 }
 
-export default runall
+export default exeall
