@@ -78,31 +78,35 @@ const remove: SlashCommand = {
       time: 60000, // 1 minute
     })
 
-    collector.on('collect', async (i: { customId: string; update: (arg0: { embeds: EmbedBuilder[]; components: never[] }) => any }) => {
-      if (i.customId === 'confirmRemove') {
-        const successEmbed = new EmbedBuilder()
-          .setColor(COLORS.green)
-          .setDescription(
-            `${EMOJIS.success} The bot left the server, this command is approved by ${interaction.user.username}`,
-          )
-          .setTimestamp()
-        await i.update({ embeds: [successEmbed], components: [] })
-        await guild.leave()
-      } else if (i.customId === 'cancelRemove') {
-        const cancelEmbed = new EmbedBuilder()
-          .setColor(COLORS.red)
-          .setDescription(`${EMOJIS.failed} Bot removal request canceled`)
-          .setTimestamp()
-        await i.update({ embeds: [cancelEmbed], components: [] })
-      }
-    })
+    collector.on(
+      'collect',
+      async (i: {
+        customId: string
+        update: (arg0: { embeds: EmbedBuilder[]; components: never[] }) => any
+      }) => {
+        if (i.customId === 'confirmRemove') {
+          const successEmbed = new EmbedBuilder()
+            .setColor(COLORS.green)
+            .setDescription(
+              `${EMOJIS.success} The bot left the server, this command is approved by ${interaction.user.username}`,
+            )
+            .setTimestamp()
+          await i.update({ embeds: [successEmbed], components: [] })
+          await guild.leave()
+        } else if (i.customId === 'cancelRemove') {
+          const cancelEmbed = new EmbedBuilder()
+            .setColor(COLORS.red)
+            .setDescription(`${EMOJIS.failed} Bot removal request canceled`)
+            .setTimestamp()
+          await i.update({ embeds: [cancelEmbed], components: [] })
+        }
+      },
+    )
 
     collector.on('end', async () => {
       const tE = new EmbedBuilder()
         .setColor(COLORS.red)
-        .setDescription(
-          `${EMOJIS.failed} Timeout! Bot removal request canceled due to inactivity.`,
-        )
+        .setDescription(`${EMOJIS.failed} Timeout! Bot removal request canceled due to inactivity.`)
         .setTimestamp()
       await (confirmMessage as any).edit({ embeds: [tE], components: [] })
     })

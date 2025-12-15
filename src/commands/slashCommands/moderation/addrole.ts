@@ -17,24 +17,15 @@ const addrole: SlashCommand = {
     .setName('addrole')
     .setDescription('Assigns a role to a user.')
     .addUserOption(option =>
-      option
-        .setName('user')
-        .setDescription('Select a user')
-        .setRequired(true),
+      option.setName('user').setDescription('Select a user').setRequired(true),
     )
     .addRoleOption(option =>
-      option
-        .setName('role')
-        .setDescription('Select a role to assign')
-        .setRequired(true),
-    )as SlashCommand['data'],
+      option.setName('role').setDescription('Select a role to assign').setRequired(true),
+    ) as SlashCommand['data'],
 
-  async executeSlash(
-    interaction: ChatInputCommandInteraction,
-    _client: ExtendedClient,
-  ) {
+  async executeSlash(interaction: ChatInputCommandInteraction, _client: ExtendedClient) {
     const member = interaction.options.getMember('user') //true
-    const role = interaction.options.getRole('role',true)
+    const role = interaction.options.getRole('role', true)
 
     if (!(member instanceof GuildMember)) {
       await interaction.reply({
@@ -57,9 +48,7 @@ const addrole: SlashCommand = {
 
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
-        .setDescription(
-          `${EMOJIS.success} Successfully assigned the role ${role} to ${member}.`,
-        )
+        .setDescription(`${EMOJIS.success} Successfully assigned the role ${role} to ${member}.`)
 
       await interaction.reply({ embeds: [successEmbed] })
     } catch (error) {

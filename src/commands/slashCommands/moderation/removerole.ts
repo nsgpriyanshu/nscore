@@ -55,7 +55,9 @@ const removeRole: SlashCommand = {
       await member.roles.remove(role)
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
-        .setDescription(`${EMOJIS.success} Successfully removed the role ${role.name} from ${member.displayName}.`)
+        .setDescription(
+          `${EMOJIS.success} Successfully removed the role ${role.name} from ${member.displayName}.`,
+        )
       await interaction.reply({ embeds: [successEmbed] })
     } catch (error) {
       console.error('Error removing role:', error)

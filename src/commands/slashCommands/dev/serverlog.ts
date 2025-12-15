@@ -1,8 +1,4 @@
-import {
-  ChatInputCommandInteraction,
-  EmbedBuilder,
-  SlashCommandBuilder,
-} from 'discord.js'
+import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js'
 import { SlashCommand } from '../../../interfaces/Command'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'

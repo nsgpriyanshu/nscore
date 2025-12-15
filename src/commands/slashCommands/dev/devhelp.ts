@@ -47,16 +47,18 @@ const devHelp: SlashCommand = {
         .map(cmd => `\`${cmd.name.padEnd(10)}\`     ${cmd.description}`)
         .join('\n')
 
-      return new EmbedBuilder()
-        //.setColor(COLORS.blue)
-        .setTitle(`${EMOJIS.devlopers} Help - ${category} Commands`)
-        .setDescription(commandDescriptions)
-        .addFields({
-          name: `${EMOJIS.leaf} Resources`,
-          value:
-            '[Docs](https://github.com/nsgpriyanshu/nscorebot)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
-          inline: true,
-        })
+      return (
+        new EmbedBuilder()
+          //.setColor(COLORS.blue)
+          .setTitle(`${EMOJIS.devlopers} Help - ${category} Commands`)
+          .setDescription(commandDescriptions)
+          .addFields({
+            name: `${EMOJIS.leaf} Resources`,
+            value:
+              '[Docs](https://github.com/nsgpriyanshu/nscorebot)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
+            inline: true,
+          })
+      )
     }
 
     const devEmbed = generateEmbed('dev', devCommands)

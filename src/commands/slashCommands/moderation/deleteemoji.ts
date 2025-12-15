@@ -32,7 +32,9 @@ const deleteEmoji: SlashCommand = {
     }
 
     const emojiInput = interaction.options.getString('emoji', true)
-    const emoji = interaction.guild.emojis.cache.find(e => e.toString() === emojiInput) as GuildEmoji
+    const emoji = interaction.guild.emojis.cache.find(
+      e => e.toString() === emojiInput,
+    ) as GuildEmoji
 
     if (!emoji) {
       const invalidEmojiEmbed = new EmbedBuilder()

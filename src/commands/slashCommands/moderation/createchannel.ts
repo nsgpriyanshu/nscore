@@ -17,10 +17,7 @@ const createChannel: SlashCommand = {
     .setName('createchannel')
     .setDescription('Creates a new text channel in the server.')
     .addStringOption(option =>
-      option
-        .setName('name')
-        .setDescription('Name of the channel')
-        .setRequired(true),
+      option.setName('name').setDescription('Name of the channel').setRequired(true),
     )
     .addStringOption(option =>
       option
@@ -29,10 +26,7 @@ const createChannel: SlashCommand = {
         .setRequired(false),
     ) as SlashCommand['data'],
 
-  async executeSlash(
-    interaction: ChatInputCommandInteraction,
-    _client: ExtendedClient,
-  ) {
+  async executeSlash(interaction: ChatInputCommandInteraction, _client: ExtendedClient) {
     const channelName = interaction.options.getString('name', true)
     const description = interaction.options.getString('description')
 
@@ -54,9 +48,7 @@ const createChannel: SlashCommand = {
 
       const successEmbed = new EmbedBuilder()
         .setColor(COLORS.green)
-        .setDescription(
-          `${EMOJIS.success} Successfully created the channel ${newChannel}.`,
-        )
+        .setDescription(`${EMOJIS.success} Successfully created the channel ${newChannel}.`)
 
       await interaction.reply({ embeds: [successEmbed] })
     } catch (error) {

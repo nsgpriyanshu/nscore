@@ -16,10 +16,7 @@ const deleteChannel: SlashCommand = {
     .setName('deletechannel')
     .setDescription('Deletes a specified channel in the server.')
     .addChannelOption(option =>
-      option
-        .setName('channel')
-        .setDescription('The channel to delete')
-        .setRequired(true),
+      option.setName('channel').setDescription('The channel to delete').setRequired(true),
     ) as SlashCommand['data'],
 
   async executeSlash(interaction: ChatInputCommandInteraction, _client: ExtendedClient) {
@@ -32,7 +29,8 @@ const deleteChannel: SlashCommand = {
     }
 
     const channel = interaction.options.getChannel('channel', true) as TextChannel
-    if (!channel || channel.type !== 0) { // 0 = GuildText
+    if (!channel || channel.type !== 0) {
+      // 0 = GuildText
       const invalidChannelEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
         .setDescription(`${EMOJIS.failed} Invalid channel specified.`)
@@ -51,7 +49,9 @@ const deleteChannel: SlashCommand = {
       console.error('Error deleting channel:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
-        .setDescription(`${EMOJIS.failed} There was an error deleting the channel. Please try again.`)
+        .setDescription(
+          `${EMOJIS.failed} There was an error deleting the channel. Please try again.`,
+        )
       await interaction.reply({ embeds: [errorEmbed], ephemeral: true })
     }
   },

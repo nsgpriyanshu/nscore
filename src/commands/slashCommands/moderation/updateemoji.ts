@@ -37,7 +37,9 @@ const updateEmoji: SlashCommand = {
     const emojiInput = interaction.options.getString('emoji', true)
     const newName = interaction.options.getString('new_name', true)
 
-    const emoji = interaction.guild.emojis.cache.find(e => e.toString() === emojiInput) as GuildEmoji
+    const emoji = interaction.guild.emojis.cache.find(
+      e => e.toString() === emojiInput,
+    ) as GuildEmoji
     if (!emoji) {
       const invalidEmojiEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
@@ -56,7 +58,9 @@ const updateEmoji: SlashCommand = {
       console.error('Error updating emoji name:', error)
       const errorEmbed = new EmbedBuilder()
         .setColor(COLORS.red)
-        .setDescription(`${EMOJIS.failed} There was an error updating the emoji name. Please try again.`)
+        .setDescription(
+          `${EMOJIS.failed} There was an error updating the emoji name. Please try again.`,
+        )
       await interaction.reply({ embeds: [errorEmbed], ephemeral: true })
     }
   },

@@ -21,10 +21,16 @@ const createRole: SlashCommand = {
       option.setName('role_name').setDescription('Name of the role').setRequired(true),
     )
     .addStringOption(option =>
-      option.setName('color').setDescription('Hex color of the role (e.g., #FF0000)').setRequired(true),
+      option
+        .setName('color')
+        .setDescription('Hex color of the role (e.g., #FF0000)')
+        .setRequired(true),
     )
     .addStringOption(option =>
-      option.setName('permissions').setDescription('Optional permissions, comma separated').setRequired(false),
+      option
+        .setName('permissions')
+        .setDescription('Optional permissions, comma separated')
+        .setRequired(false),
     ) as SlashCommand['data'],
 
   async executeSlash(interaction: ChatInputCommandInteraction, _client: ExtendedClient) {
