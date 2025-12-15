@@ -1,6 +1,7 @@
 import {
+  ChatInputCommandInteraction,
   EmbedBuilder,
-  Message,
+  SlashCommandBuilder,
   TextChannel,
   VoiceChannel,
   CategoryChannel,
@@ -9,18 +10,25 @@ import {
   ForumChannel,
   ChannelType,
 } from 'discord.js'
+import { SlashCommand } from '../../../interfaces/Command'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
-import { MessageCommand } from '../../../interfaces/Command'
 
-const channelInfo: MessageCommand = {
+const channelInfo: SlashCommand = {
   name: 'channelinfo',
   description: 'Displays information about a specified channel or the current channel.',
-  async executeMessage(message: Message, args: string[]) {
-    // Check if a channel was mentioned or provided as an argument
-    const channel =
-      message.mentions.channels.first() ||
-      message.guild?.channels.cache.get(args[0]) ||
-      message.channel
+
+  data: new SlashCommandBuilder()
+    .setName('channelinfo')
+    .setDescription('Displays information about a specified channel or the current channel.')
+    .addChannelOption(option =>
+      option
+        .setName('channel')
+        .setDescription('Select a channel (defaults to current channel)')
+        .setRequired(false),
+    ) as SlashCommand['data'],
+
+  async executeSlash(interaction: ChatInputCommandInteraction) {
+    const channel = interaction.options.getChannel('channel') || interaction.channel
 
     if (
       !channel ||
@@ -36,15 +44,13 @@ const channelInfo: MessageCommand = {
       const cE = new EmbedBuilder()
         .setColor(COLORS.red)
         .setTitle('Opps!')
-        .setDescription(
-          `${EMOJIS.failed} Please mention a valid channel or provide a valid channel ID.`,
-        )
+        .setDescription(`${EMOJIS.failed} Please select a valid channel.`)
         .setTimestamp()
-      await message.reply({ embeds: [cE] })
+
+      await interaction.reply({ embeds: [cE], ephemeral: true })
       return
     }
 
-    // Convert channel type to a readable string
     let channelType: string
     switch (channel.type) {
       case ChannelType.GuildText:
@@ -67,23 +73,25 @@ const channelInfo: MessageCommand = {
         break
     }
 
-    // Check if the channel has a parent category
     const parentCategory = channel.parent ? channel.parent.name : 'None'
-
-    // Check if the channel has a topic
     const topic = 'topic' in channel && channel.topic ? channel.topic : 'No topic set'
-
-    // Check if the createdAt property is null
     const createdAt = channel.createdAt ? channel.createdAt.toDateString() : 'Unknown'
 
     const channelEmbed = new EmbedBuilder()
       //.setColor(COLORS.blue)
       .setTitle('Channel Information')
-      .setDescription(`${EMOJIS.channel} Channel Name: ${channel.name}\n${EMOJIS.id} Channel ID: ${channel.id}\nChannel Type: ${channelType}\nCategory: ${parentCategory}\nTopic: ${topic}\n ${EMOJIS.inbox} Created At: ${createdAt}
-      `)
+      .setDescription(
+        `${EMOJIS.channel} Channel Name: ${channel.name}
+${EMOJIS.id} Channel ID: ${channel.id}
+Channel Type: ${channelType}
+Category: ${parentCategory}
+Topic: ${topic}
+${EMOJIS.inbox} Created At: ${createdAt}`,
+      )
 
-    await message.reply({ embeds: [channelEmbed] })
+    await interaction.reply({ embeds: [channelEmbed] })
   },
+
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],
   devOnly: false,

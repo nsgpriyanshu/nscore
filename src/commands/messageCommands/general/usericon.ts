@@ -2,7 +2,6 @@ import { Message } from 'discord.js'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
 import { MessageCommand } from '../../../interfaces/Command'
 import { EmbedBuilder } from 'discord.js'
-import { url } from 'inspector'
 
 const profile: MessageCommand = {
   name: 'usericon',

@@ -8,7 +8,7 @@ import {
   MessageComponentInteraction,
 } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
-import { COLORS, EMOJIS } from '../../../constants/botConst'
+import { EMOJIS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
 import fs from 'fs'
 import path from 'path'
