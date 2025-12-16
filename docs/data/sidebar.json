@@ -1,0 +1,51 @@
+{
+  "brand": {
+    "name": "NSCore",
+    "description": "Discord Bot Documentation"
+  },
+
+  "main": [
+    {
+      "title": "Getting Started",
+      "items": [
+        {
+          "title": "Introduction",
+          "href": "/",
+          "description": "Overview of the bot"
+        },
+        {
+          "title": "Installation",
+          "href": "/installation"
+        }
+      ]
+    },
+    {
+      "title": "Commands",
+      "items": [
+        {
+          "title": "Moderation",
+          "href": "/commands/moderation"
+        },
+        {
+          "title": "Information",
+          "href": "/commands/information"
+        },
+        {
+          "title": "Utility",
+          "href": "/commands/utility"
+        }
+      ]
+    }
+  ],
+
+  "secondary": [
+    {
+      "title": "Changelog",
+      "href": "/changelog"
+    },
+    {
+      "title": "FAQ",
+      "href": "/faq"
+    }
+  ]
+}
