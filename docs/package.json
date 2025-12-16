@@ -1,12 +1,26 @@
 {
   "name": "docs",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
+  },
+  "keywords": [
+    "nsCore",
+    "discord"
+  ],
+  "author": "nsgpriyanshu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsgpriyanshu/nscore",
+    "homepage": "https://github.com/nsgpriyanshu/nscore#readme",
+    "bugs": {
+      "url": "https://github.com/nsgpriyanshu/nscore/issues"
+    }
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

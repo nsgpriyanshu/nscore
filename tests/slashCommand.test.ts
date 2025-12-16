@@ -14,51 +14,62 @@ import { SlashCommand } from '../src/interfaces/Command'
 // ---------------------------
 // Mock helpers
 // ---------------------------
-const mockRole = (name = 'TestRole'): Role => ({
-  id: 'role123',
-  name,
-  permissions: new PermissionsBitField(),
-  delete: jest.fn(),
-} as unknown as Role)
+const mockRole = (name = 'TestRole'): Role =>
+  ({
+    id: 'role123',
+    name,
+    permissions: new PermissionsBitField(),
+    delete: jest.fn(),
+  }) as unknown as Role
 
-const mockMember = (): GuildMember => ({
-  displayName: 'TestMember',
-  roles: { add: jest.fn(), remove: jest.fn(), cache: new Map([['role123', mockRole()]]) },
-} as unknown as GuildMember)
+const mockMember = (): GuildMember =>
+  ({
+    displayName: 'TestMember',
+    roles: { add: jest.fn(), remove: jest.fn(), cache: new Map([['role123', mockRole()]]) },
+  }) as unknown as GuildMember
 
-const mockEmoji = (name = 'TestEmoji'): GuildEmoji => ({
-  id: 'emoji123',
-  name,
-  delete: jest.fn(),
-  edit: jest.fn(),
-  toString: () => `<:${name}:123>`,
-} as unknown as GuildEmoji)
+const mockEmoji = (name = 'TestEmoji'): GuildEmoji =>
+  ({
+    id: 'emoji123',
+    name,
+    delete: jest.fn(),
+    edit: jest.fn(),
+    toString: () => `<:${name}:123>`,
+  }) as unknown as GuildEmoji
 
-const mockTextChannel = (): TextChannel => ({
-  send: jest.fn(),
-  delete: jest.fn(),
-  permissionsFor: jest.fn(() => ({ has: () => true })),
-} as unknown as TextChannel)
+const mockTextChannel = (): TextChannel =>
+  ({
+    send: jest.fn(),
+    delete: jest.fn(),
+    permissionsFor: jest.fn(() => ({ has: () => true })),
+  }) as unknown as TextChannel
 
-const mockGuild = (): Guild => ({
-  id: 'guild123',
-  name: 'TestGuild',
-  systemChannel: mockTextChannel(),
-  channels: { cache: new Map([['channel123', mockTextChannel()]]), create: jest.fn() },
-  roles: { cache: new Map([['role123', mockRole()]]) },
-  members: { cache: new Map([['member123', mockMember()]]) },
-  emojis: { cache: new Map([['emoji123', mockEmoji()]]) },
-} as unknown as Guild)
+const mockGuild = (): Guild =>
+  ({
+    id: 'guild123',
+    name: 'TestGuild',
+    systemChannel: mockTextChannel(),
+    channels: { cache: new Map([['channel123', mockTextChannel()]]), create: jest.fn() },
+    roles: { cache: new Map([['role123', mockRole()]]) },
+    members: { cache: new Map([['member123', mockMember()]]) },
+    emojis: { cache: new Map([['emoji123', mockEmoji()]]) },
+  }) as unknown as Guild
 
-const mockInteraction = (): ChatInputCommandInteraction => ({
-  user: { id: 'user123', tag: 'TestUser#0001', username: 'TestUser', displayAvatarURL: jest.fn() },
-  guild: mockGuild(),
-  options: {
-    getString: jest.fn((name: string, required?: boolean) => 'test-value'),
-  } as any,
-  reply: jest.fn().mockResolvedValue({}),
-  update: jest.fn().mockResolvedValue({}),
-} as unknown as ChatInputCommandInteraction)
+const mockInteraction = (): ChatInputCommandInteraction =>
+  ({
+    user: {
+      id: 'user123',
+      tag: 'TestUser#0001',
+      username: 'TestUser',
+      displayAvatarURL: jest.fn(),
+    },
+    guild: mockGuild(),
+    options: {
+      getString: jest.fn((name: string, required?: boolean) => 'test-value'),
+    } as any,
+    reply: jest.fn().mockResolvedValue({}),
+    update: jest.fn().mockResolvedValue({}),
+  }) as unknown as ChatInputCommandInteraction
 
 // ---------------------------
 // Load all slash commands safely
@@ -121,7 +132,13 @@ describe('Slash Commands', () => {
           args = { emoji: '<:TestEmoji:123>', new_name: 'NewName' }
           break
         case 'update':
-          args = { color: '#00FF00', title: 'Test Title', thumbnail: '', image: '', message: 'Update message' }
+          args = {
+            color: '#00FF00',
+            title: 'Test Title',
+            thumbnail: '',
+            image: '',
+            message: 'Update message',
+          }
           break
       }
 
