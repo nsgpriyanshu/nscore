@@ -1,12 +1,10 @@
-"use client"
+'use client'
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { ChevronRight, type LucideIcon } from 'lucide-react'
+import { CommandBadge } from '@/components/command-badge'
+import type { CommandGroup } from '@/types/commands'
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,27 +14,14 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar'
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string
-    url: string
-    icon?: LucideIcon
-    isActive?: boolean
-    items?: {
-      title: string
-      url: string
-    }[]
-  }[]
-}) {
+export function NavMain({ items }: { items: readonly CommandGroup[] }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>Commands</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
+        {items.map(item => (
           <Collapsible
             key={item.title}
             asChild
@@ -51,13 +36,15 @@ export function NavMain({
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
+
               <CollapsibleContent>
                 <SidebarMenuSub>
-                  {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
+                  {item.items?.map(cmd => (
+                    <SidebarMenuSubItem key={cmd.title}>
                       <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
-                          <span>{subItem.title}</span>
+                        <a href={cmd.url} className="flex items-center justify-between gap-2">
+                          <span className="truncate">{cmd.title}</span>
+                          <CommandBadge type={cmd.type} />
                         </a>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
