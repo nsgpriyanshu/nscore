@@ -3,13 +3,10 @@
 import * as React from 'react'
 import {
   AudioWaveform,
-  Code,
   Command,
-  Frame,
   GalleryVerticalEnd,
   Home,
   Info,
-  PieChart,
   ShieldCheck,
   SquareTerminal,
   UserPlus,
@@ -55,12 +52,12 @@ const data = {
   home: [
     {
       name: 'Overview',
-      url: '/dashboard/overview',
+      url: '/docs/overview',
       icon: Home,
     },
     {
       name: 'Invite',
-      url: '/dashboard/invite',
+      url: '/docs/invite',
       icon: UserPlus,
     },
   ],

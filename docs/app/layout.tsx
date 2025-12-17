@@ -4,9 +4,9 @@ import '@/styles/globals.css'
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/app-sidebar'
 import { Separator } from '@radix-ui/react-separator'
-import { ModeToggle } from '@/components/globals/theme-toggle'
+import { ModeToggle } from '@/components/global/theme-toggle'
 import Breadcrumbs from '@/components/breadcrumbs'
-import { ThemeProvider } from '@/components/globals/theme-provider'
+import { ThemeProvider } from '@/components/global/theme-provider'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -51,6 +51,7 @@ export default function RootLayout({
                 </div>
                 <ModeToggle /> {/* Theme toggle button */}
               </header>
+              <main className="flex flex-1 flex-col px-8 py-8">{children}</main>
             </SidebarInset>
           </SidebarProvider>
         </ThemeProvider>
