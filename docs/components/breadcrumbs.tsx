@@ -30,10 +30,10 @@ export default function Breadcrumbs() {
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        {/* Always start with Dashboard */}
+        {/* Always start with Documentation */}
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/dashboard">Documention</Link>
+            <Link href="/">Documentation</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 

@@ -99,7 +99,9 @@ export function CommandPage({ command }: CommandPageProps) {
                 <PermissionBadge key={perm} permission={perm} />
               ))
             ) : (
-              <Badge variant="outline" className="text-xs">None</Badge>
+              <Badge variant="outline" className="text-xs">
+                None
+              </Badge>
             )}
           </div>
         </div>
@@ -116,7 +118,9 @@ export function CommandPage({ command }: CommandPageProps) {
                 <PermissionBadge key={perm} permission={perm} />
               ))
             ) : (
-              <Badge variant="outline" className="text-xs">None</Badge>
+              <Badge variant="outline" className="text-xs">
+                None
+              </Badge>
             )}
           </div>
         </div>

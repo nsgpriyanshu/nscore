@@ -7,6 +7,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { ModeToggle } from '@/components/global/theme-toggle'
 import Breadcrumbs from '@/components/breadcrumbs'
 import { ThemeProvider } from '@/components/global/theme-provider'
+import { AppFooter } from '@/components/app-footer'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -50,9 +51,10 @@ export default function RootLayout({
                   <Breadcrumbs /> {/* centralized breadcrumb */}
                 </div>
                 <ModeToggle /> {/* Theme toggle button */}
-                <Separator/>
+                <Separator />
               </header>
               <main className="flex flex-1 flex-col px-8 py-8">{children}</main>
+              <AppFooter />
             </SidebarInset>
           </SidebarProvider>
         </ThemeProvider>
