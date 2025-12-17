@@ -50,6 +50,7 @@ export default function RootLayout({
                   <Breadcrumbs /> {/* centralized breadcrumb */}
                 </div>
                 <ModeToggle /> {/* Theme toggle button */}
+                <Separator/>
               </header>
               <main className="flex flex-1 flex-col px-8 py-8">{children}</main>
             </SidebarInset>

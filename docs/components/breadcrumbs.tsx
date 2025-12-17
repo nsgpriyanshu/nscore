@@ -14,10 +14,10 @@ export default function Breadcrumbs() {
   const pathname = usePathname()
 
   // remove empty segments and 'dashboard'
-  const segments = pathname.split('/').filter(segment => segment && segment !== 'dashboard')
+  const segments = pathname.split('/').filter(segment => segment && segment !== 'docs')
 
   const breadcrumbs = segments.map((segment, index) => {
-    const href = `/dashboard/${segments.slice(0, index + 1).join('/')}`
+    const href = `/docs/${segments.slice(0, index + 1).join('/')}`
 
     // prettify segment text
     const name = decodeURIComponent(segment)
@@ -33,7 +33,7 @@ export default function Breadcrumbs() {
         {/* Always start with Dashboard */}
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/dashboard">Dashboard</Link>
+            <Link href="/dashboard">Documention</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 

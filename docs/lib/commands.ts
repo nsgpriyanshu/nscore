@@ -18,8 +18,8 @@ export const commands: CommandData[] = [
     name: 'ping',
     category: 'general',
     type: 'hybrid',
-    description: 'Check bot latency.',
-    usage: '/ping',
+    description: 'Replies with Ping!',
+    usage: 'ping',
     permissions: {
       bot: ['sendMessages'],
       user: ['sendMessages'],

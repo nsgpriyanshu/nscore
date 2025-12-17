@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator'
 import { Check, Copy, Bot, User as UserIcon } from 'lucide-react'
 import { CommandType } from '@/lib/commands'
 import { CommandBadge } from './command-badge'
+import { PermissionBadge, permissionMap } from './permission-badge'
 
 interface CommandPageProps {
   command: {
@@ -33,13 +34,22 @@ export function CommandPage({ command }: CommandPageProps) {
     setTimeout(() => setCopied(false), 1500)
   }
 
+  function sortBySeverity(perms: string[]) {
+    const order = ['basic', 'text', 'voice', 'moderation', 'management', 'admin']
+
+    return [...perms].sort((a, b) => {
+      const g1 = permissionMap[a]?.group ?? 'basic'
+      const g2 = permissionMap[b]?.group ?? 'basic'
+      return order.indexOf(g1) - order.indexOf(g2)
+    })
+  }
+
   return (
     <div className="max-w-4xl space-y-8">
       {/* Header */}
       <div className="space-y-3">
         <div className="flex flex-wrap items-center gap-3">
-          <h1 className="text-3xl font-bold tracking-tight">/{command.name}</h1>
-
+          <h1 className="text-3xl font-bold tracking-tight">{command.name}</h1>
           <CommandBadge type={command.type} />
         </div>
 
@@ -56,20 +66,18 @@ export function CommandPage({ command }: CommandPageProps) {
           <Button variant="ghost" size="sm" onClick={copyUsage} className="gap-2">
             {copied ? (
               <>
-                <Check className="h-4 w-4" />
-                Copied
+                <Check className="h-4 w-4" /> Copied
               </>
             ) : (
               <>
-                <Copy className="h-4 w-4" />
-                Copy
+                <Copy className="h-4 w-4" /> Copy
               </>
             )}
           </Button>
         </div>
 
         <pre className="rounded-md bg-muted px-4 py-3 text-sm overflow-x-auto">
-          <code>{command.usage}</code>
+          <code>ns.{command.usage}</code>
         </pre>
       </section>
 
@@ -82,21 +90,16 @@ export function CommandPage({ command }: CommandPageProps) {
         {/* Bot permissions */}
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-            <Bot className="h-4 w-4" />
-            Bot permissions
+            <Bot className="h-4 w-4" /> Bot permissions
           </div>
 
           <div className="flex flex-wrap gap-2">
             {command.permissions.bot.length ? (
-              command.permissions.bot.map(perm => (
-                <Badge key={perm} variant="secondary" className="text-xs">
-                  {perm}
-                </Badge>
+              sortBySeverity(command.permissions.bot).map(perm => (
+                <PermissionBadge key={perm} permission={perm} />
               ))
             ) : (
-              <Badge variant="outline" className="text-xs">
-                None
-              </Badge>
+              <Badge variant="outline" className="text-xs">None</Badge>
             )}
           </div>
         </div>
@@ -104,21 +107,16 @@ export function CommandPage({ command }: CommandPageProps) {
         {/* User permissions */}
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-            <UserIcon className="h-4 w-4" />
-            User permissions
+            <UserIcon className="h-4 w-4" /> User permissions
           </div>
 
           <div className="flex flex-wrap gap-2">
             {command.permissions.user.length ? (
-              command.permissions.user.map(perm => (
-                <Badge key={perm} variant="outline" className="text-xs">
-                  {perm}
-                </Badge>
+              sortBySeverity(command.permissions.user).map(perm => (
+                <PermissionBadge key={perm} permission={perm} />
               ))
             ) : (
-              <Badge variant="outline" className="text-xs">
-                None
-              </Badge>
+              <Badge variant="outline" className="text-xs">None</Badge>
             )}
           </div>
         </div>
