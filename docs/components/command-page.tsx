@@ -2,18 +2,21 @@
 
 import * as React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
-import { Check, Copy, Bot, User as UserIcon } from 'lucide-react'
-import { CommandType } from '@/lib/commands'
+import { Check, Copy, Bot, User as UserIcon, ArrowLeft, ArrowRight } from 'lucide-react'
+
+import { commands, CommandType } from '@/lib/commands'
 import { CommandBadge } from './command-badge'
 import { PermissionBadge, permissionMap } from './permission-badge'
 
 interface CommandPageProps {
   command: {
     name: string
+    category: string
     description: string
     usage: string
     type: CommandType
@@ -43,6 +46,20 @@ export function CommandPage({ command }: CommandPageProps) {
       return order.indexOf(g1) - order.indexOf(g2)
     })
   }
+
+  /** -----------------------------
+   *  Prev / Next command logic
+   *  ----------------------------- */
+  const sameCategoryCommands = commands.filter(cmd => cmd.category === command.category)
+
+  const currentIndex = sameCategoryCommands.findIndex(cmd => cmd.name === command.name)
+
+  const prevCommand = currentIndex > 0 ? sameCategoryCommands[currentIndex - 1] : null
+
+  const nextCommand =
+    currentIndex >= 0 && currentIndex < sameCategoryCommands.length - 1
+      ? sameCategoryCommands[currentIndex + 1]
+      : null
 
   return (
     <div className="max-w-4xl space-y-8">
@@ -149,6 +166,33 @@ export function CommandPage({ command }: CommandPageProps) {
           </section>
         </>
       ) : null}
+
+      {/* Prev / Next navigation */}
+      <Separator />
+
+      <div className="flex items-center justify-between gap-4 pt-4">
+        {prevCommand ? (
+          <Button variant="outline" asChild className="gap-2">
+            <Link href={`/docs/${prevCommand.category}/${prevCommand.name}`}>
+              <ArrowLeft className="h-4 w-4" />
+              {prevCommand.name}
+            </Link>
+          </Button>
+        ) : (
+          <div />
+        )}
+
+        {nextCommand ? (
+          <Button variant="outline" asChild className="gap-2">
+            <Link href={`/docs/${nextCommand.category}/${nextCommand.name}`}>
+              {nextCommand.name}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        ) : (
+          <div />
+        )}
+      </div>
     </div>
   )
 }

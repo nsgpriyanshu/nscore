@@ -2,7 +2,6 @@
 
 import { ChevronRight, type LucideIcon } from 'lucide-react'
 import { CommandBadge } from '@/components/command-badge'
-import type { CommandGroup } from '@/types/commands'
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import {
@@ -15,6 +14,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar'
+import { CommandGroup } from '@/lib/commands'
 
 export function NavMain({ items }: { items: readonly CommandGroup[] }) {
   return (

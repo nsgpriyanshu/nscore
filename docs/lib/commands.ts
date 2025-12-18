@@ -1,7 +1,6 @@
-// commands.ts
-// Version: 1.1
-// Updated: 2025-12-18
-// Added info & moderation commands, parameter explanations, permission badges
+import type { LucideIcon } from 'lucide-react'
+
+/* ───────────── COMMAND TYPES ───────────── */
 
 export type CommandType = 'slash' | 'message' | 'hybrid'
 
@@ -17,6 +16,23 @@ export interface CommandData {
   }
   examples?: string[]
 }
+
+/* ───────────── SIDEBAR TYPES ───────────── */
+
+export interface CommandNavItem {
+  title: string
+  url: string
+  type: CommandType
+}
+
+export interface CommandGroup {
+  title: string
+  icon?: LucideIcon
+  isActive?: boolean
+  items: readonly CommandNavItem[]
+}
+
+/* ───────────── COMMAND DATA ───────────── */
 
 export const commands: CommandData[] = [
   /* ───────────── GENERAL ───────────── */
@@ -147,8 +163,7 @@ export const commands: CommandData[] = [
   },
   {
     name: 'info',
-    description:
-      'Displays information about a user.\nParameters:\n<@user> → the user to query.',
+    description: 'Displays information about a user.\nParameters:\n<@user> → the user to query.',
     category: 'info',
     type: 'hybrid',
     usage: 'info <@user>',
@@ -252,8 +267,7 @@ export const commands: CommandData[] = [
   },
   {
     name: 'deleterole',
-    description:
-      'Removes a specified role from the server.\nParameters:\n<@role> → role to delete',
+    description: 'Removes a specified role from the server.\nParameters:\n<@role> → role to delete',
     category: 'moderation',
     type: 'hybrid',
     usage: 'deleterole <@role>',

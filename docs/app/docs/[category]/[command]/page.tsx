@@ -65,6 +65,7 @@ export default async function CommandDocPage({ params }: PageProps) {
         name: commandData.name,
         description: commandData.description,
         type: commandData.type,
+        category: commandData.category,
         usage: commandData.usage,
         permissions: commandData.permissions,
         examples: commandData.examples,
