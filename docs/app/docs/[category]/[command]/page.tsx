@@ -13,14 +13,10 @@ interface PageProps {
 /**
  * Page-level dynamic SEO
  */
-export async function generateMetadata(
-  { params }: PageProps
-): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, command } = await params
 
-  const commandData = commands.find(
-    (cmd) => cmd.category === category && cmd.name === command
-  )
+  const commandData = commands.find(cmd => cmd.category === category && cmd.name === command)
 
   if (!commandData) {
     return {
@@ -59,9 +55,7 @@ export async function generateMetadata(
 export default async function CommandDocPage({ params }: PageProps) {
   const { category, command } = await params
 
-  const commandData = commands.find(
-    (cmd) => cmd.category === category && cmd.name === command
-  )
+  const commandData = commands.find(cmd => cmd.category === category && cmd.name === command)
 
   if (!commandData) notFound()
 

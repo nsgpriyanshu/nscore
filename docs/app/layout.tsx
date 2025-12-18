@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import '@/styles/globals.css'
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/app-sidebar'
-import { Separator } from '@radix-ui/react-separator'
+import { Separator } from '@/components/ui/separator'
 import { ModeToggle } from '@/components/global/theme-toggle'
 import Breadcrumbs from '@/components/breadcrumbs'
 import { ThemeProvider } from '@/components/global/theme-provider'
@@ -46,10 +46,11 @@ export default function RootLayout({
                     orientation="vertical"
                     className="mr-2 data-[orientation=vertical]:h-4"
                   />
-                  <Breadcrumbs /> 
+                  <Breadcrumbs />
                 </div>
                 <ModeToggle />
               </header>
+              <Separator />
               <main className="flex flex-1 flex-col px-8 py-8">{children}</main>
               <AppFooter />
             </SidebarInset>

@@ -145,9 +145,19 @@ export const permissionMap: Record<string, PermissionConfig> = {
     className:
       'bg-pink-500/10 text-pink-600 border-pink-500/20 dark:bg-pink-500/20 dark:text-pink-400 dark:border-pink-500/30',
   },
+  manageEmojisAndStickers: {
+    group: 'management',
+    className:
+      'bg-pink-500/10 text-pink-600 border-pink-500/20 dark:bg-pink-500/20 dark:text-pink-400 dark:border-pink-500/30',
+  },
 
   // ===== ADMIN =====
   manageServer: {
+    group: 'admin',
+    className:
+      'bg-red-500/10 text-red-600 border-red-500/20 dark:bg-red-500/20 dark:text-red-400 dark:border-red-500/30',
+  },
+  managePermissions: {
     group: 'admin',
     className:
       'bg-red-500/10 text-red-600 border-red-500/20 dark:bg-red-500/20 dark:text-red-400 dark:border-red-500/30',

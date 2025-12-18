@@ -43,9 +43,7 @@ export default function InviteBotPage() {
     <div className="mx-auto max-w-4xl px-6 py-10 space-y-12">
       {/* Title */}
       <section className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Invite nsCore to Your Server
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">Invite nsCore to Your Server</h1>
         <p className="text-muted-foreground">
           Follow the steps below to safely invite nsCore and configure it for your Discord server.
         </p>
@@ -63,8 +61,8 @@ export default function InviteBotPage() {
         <Button size="lg">Invite nsCore</Button>
 
         <p className="text-sm text-muted-foreground">
-          You must have the{' '}
-          <PermissionBadge permission="manageServer" /> permission to invite a bot.
+          You must have the <PermissionBadge permission="manageServer" /> permission to invite a
+          bot.
         </p>
       </section>
 
@@ -127,9 +125,7 @@ export default function InviteBotPage() {
       {/* After Invite */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">After Inviting</h2>
-        <p className="text-muted-foreground">
-          Once added, try these commands to get started:
-        </p>
+        <p className="text-muted-foreground">Once added, try these commands to get started:</p>
 
         <div className="flex flex-wrap gap-2">
           <Badge variant="outline">ns.help</Badge>
@@ -149,9 +145,7 @@ export default function InviteBotPage() {
 function ImagePlaceholder({ label }: { label: string }) {
   return (
     <div className="relative flex h-56 items-center justify-center rounded-lg border bg-muted">
-      <span className="text-sm text-muted-foreground">
-        Image placeholder — {label}
-      </span>
+      <span className="text-sm text-muted-foreground">Image placeholder — {label}</span>
     </div>
   )
 }

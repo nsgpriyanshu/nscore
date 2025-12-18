@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Documentation Overview - nsCore',
-    description:
-      'A complete guide to understanding nsCore documentation and command structure.',
+    description: 'A complete guide to understanding nsCore documentation and command structure.',
   },
 }
 
@@ -43,9 +42,7 @@ export default function DocsOverviewPage() {
     <div className="mx-auto max-w-4xl px-6 py-10 space-y-12">
       {/* Title */}
       <section className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Documentation Overview
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">Documentation Overview</h1>
         <p className="text-muted-foreground">
           Learn how to read and understand nsCore command documentation.
         </p>
@@ -93,9 +90,7 @@ export default function DocsOverviewPage() {
           The usage block shows the correct syntax for running a command.
         </p>
 
-        <div className="rounded-lg border bg-muted p-4 text-sm font-mono">
-          /ping [user]
-        </div>
+        <div className="rounded-lg border bg-muted p-4 text-sm font-mono">/ping [user]</div>
 
         <ul className="list-disc pl-6 text-muted-foreground space-y-1">
           <li>Required arguments appear without brackets.</li>
@@ -158,8 +153,8 @@ export default function DocsOverviewPage() {
       <section className="space-y-3">
         <h2 className="text-2xl font-semibold">Navigating the Docs</h2>
         <p className="text-muted-foreground">
-          Use the sidebar to browse command categories such as General, Info, and
-          Moderation. Each command has its own dedicated page.
+          Use the sidebar to browse command categories such as General, Info, and Moderation. Each
+          command has its own dedicated page.
         </p>
       </section>
     </div>
@@ -186,9 +181,7 @@ function CommandType({
         <h3 className="font-semibold">{title}</h3>
       </div>
       <p className="text-muted-foreground text-sm">{description}</p>
-      <div className="rounded bg-muted px-3 py-2 text-sm font-mono">
-        {example}
-      </div>
+      <div className="rounded bg-muted px-3 py-2 text-sm font-mono">{example}</div>
     </div>
   )
 }

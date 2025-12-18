@@ -12,13 +12,7 @@ export default function HomePage() {
         {/* Banner placeholder */}
         <div className="relative mx-auto h-56 md:h-72 w-full max-w-5xl rounded-xl border bg-muted flex items-center justify-center">
           <span className="text-sm text-muted-foreground">
-            <Image
-              src="/banner.png"
-              alt="nsCore banner"
-              fill
-              className="object-cover rounded-xl"
-            />
-
+            <Image src="/banner.png" alt="nsCore banner" fill className="object-cover rounded-xl" />
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">

@@ -8,8 +8,15 @@ import { NavMain } from '@/components/nav-main'
 import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar'
 import { NavHome } from './nav-home'
 import Image from 'next/image'
+import { TeamSwitcher } from './team-switcher'
 
 const data = {
+  teams: [
+    {
+      name: 'nsCore',
+      plan: 'v2.0.0 - Beta',
+    },
+  ],
   home: [
     {
       name: 'Overview',
@@ -74,20 +81,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <div className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="nsCore Logo"
-            width={32}
-            height={32}
-          />
-
-          <div className="leading-tight">
-            <p className="font-medium">nsCore</p>
-            <p className="text-xs text-muted-foreground">v2.0.0</p>
-          </div>
-        </div>
-
+        <SidebarHeader>
+          <TeamSwitcher teams={data.teams} />
+        </SidebarHeader>
       </SidebarHeader>
       <SidebarContent>
         <NavHome Home={data.home} />
