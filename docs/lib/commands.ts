@@ -48,7 +48,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/ping1.png'],
+    examples: ['/examples/general/ping1.png'],
   },
   {
     name: 'help',
@@ -61,7 +61,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/help1.png'],
+    examples: ['/examples/general/help1.png'],
   },
   {
     name: 'announce',
@@ -79,7 +79,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['administrator'],
     },
-    examples: ['/examples/announce1.png'],
+    examples: ['/examples/general/announce1.png'],
   },
   {
     name: 'servericon',
@@ -91,7 +91,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/servericon1.png'],
+    examples: ['/examples/general/servericon1.png'],
   },
   {
     name: 'usericon',
@@ -104,7 +104,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/usericon1.png'],
+    examples: ['/examples/general/usericon1.png'],
   },
   {
     name: 'news',
@@ -117,7 +117,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/news1.png'],
+    examples: ['/examples/general/news1.png'],
   },
   {
     name: 'weather',
@@ -130,7 +130,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/weather1.png'],
+    examples: ['/examples/general/weather1.png'],
   },
 
   /* ───────────── INFO ───────────── */
@@ -145,7 +145,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/appinfo1.png'],
+    examples: ['/examples/info/info/appinfo1.png'],
   },
   {
     name: 'channelinfo',
@@ -159,7 +159,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/channelinfo1.png'],
+    examples: ['/examples/info/channelinfo1.png'],
   },
   {
     name: 'info',
@@ -171,7 +171,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/info1.png'],
+    examples: ['/examples/info/info1.png'],
   },
   {
     name: 'roleinfo',
@@ -184,7 +184,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/roleinfo1.png'],
+    examples: ['/examples/info/roleinfo1.png'],
   },
   {
     name: 'serverinfo',
@@ -196,7 +196,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/serverinfo1.png'],
+    examples: ['/examples/info/serverinfo1.png'],
   },
   {
     name: 'boostinfo',
@@ -208,7 +208,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/boostinfo1.png'],
+    examples: ['/examples/info/boostinfo1.png'],
   },
   {
     name: 'inviteinfo',
@@ -221,7 +221,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/inviteinfo1.png'],
+    examples: ['/examples/info/inviteinfo1.png'],
   },
 
   /* ───────────── MODERATION ───────────── */
