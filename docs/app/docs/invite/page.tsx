@@ -1,15 +1,51 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PermissionBadge } from '@/components/permission-badge'
 
+/* ---------------------------------
+   SEO Metadata
+---------------------------------- */
+
+export const metadata: Metadata = {
+  title: 'Invite nsCore to Your Discord Server',
+  description:
+    'Learn how to safely invite nsCore to your Discord server, review permissions, and get started with essential commands.',
+  keywords: [
+    'nsCore',
+    'Discord bot',
+    'Invite Discord bot',
+    'nsCore invite',
+    'Discord bot permissions',
+  ],
+  openGraph: {
+    title: 'Invite nsCore to Your Discord Server',
+    description:
+      'Step-by-step guide to invite nsCore, review permissions, and configure it for your Discord server.',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Invite nsCore to Your Discord Server',
+    description:
+      'Follow this guide to invite nsCore and configure it securely for your Discord server.',
+  },
+}
+
+/* ---------------------------------
+   Page Component
+---------------------------------- */
+
 export default function InviteBotPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 space-y-12">
       {/* Title */}
       <section className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Invite nsCore to Your Server</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Invite nsCore to Your Server
+        </h1>
         <p className="text-muted-foreground">
           Follow the steps below to safely invite nsCore and configure it for your Discord server.
         </p>
@@ -28,10 +64,7 @@ export default function InviteBotPage() {
 
         <p className="text-sm text-muted-foreground">
           You must have the{' '}
-          <span>
-            <PermissionBadge permission="manageServer" />
-          </span>{' '}
-          permission to invite a bot.
+          <PermissionBadge permission="manageServer" /> permission to invite a bot.
         </p>
       </section>
 
@@ -94,7 +127,9 @@ export default function InviteBotPage() {
       {/* After Invite */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">After Inviting</h2>
-        <p className="text-muted-foreground">Once added, try these commands to get started:</p>
+        <p className="text-muted-foreground">
+          Once added, try these commands to get started:
+        </p>
 
         <div className="flex flex-wrap gap-2">
           <Badge variant="outline">ns.help</Badge>
@@ -114,7 +149,9 @@ export default function InviteBotPage() {
 function ImagePlaceholder({ label }: { label: string }) {
   return (
     <div className="relative flex h-56 items-center justify-center rounded-lg border bg-muted">
-      <span className="text-sm text-muted-foreground">Image placeholder — {label}</span>
+      <span className="text-sm text-muted-foreground">
+        Image placeholder — {label}
+      </span>
     </div>
   )
 }

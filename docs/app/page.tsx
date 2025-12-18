@@ -3,12 +3,24 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Command, ShieldCheck, Info, Terminal, LifeBuoy } from 'lucide-react'
-
+import Image from 'next/image'
 export default function HomePage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-12 space-y-24">
       {/* Hero */}
       <section className="text-center space-y-6">
+        {/* Banner placeholder */}
+        <div className="relative mx-auto h-56 md:h-72 w-full max-w-5xl rounded-xl border bg-muted flex items-center justify-center">
+          <span className="text-sm text-muted-foreground">
+            <Image
+              src="/banner.png"
+              alt="nsCore banner"
+              fill
+              className="object-cover rounded-xl"
+            />
+
+          </span>
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
           Introducing <span className="text-primary">nsCore</span>
         </h1>

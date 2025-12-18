@@ -7,8 +7,8 @@ import { NavMain } from '@/components/nav-main'
 
 import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components/ui/sidebar'
 import { NavHome } from './nav-home'
+import Image from 'next/image'
 
-// This is sample data.
 const data = {
   home: [
     {
@@ -74,10 +74,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <div>
-          <p className="font-bold">nsCore</p>
-          <p>v2.0.0</p>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="nsCore Logo"
+            width={32}
+            height={32}
+          />
+
+          <div className="leading-tight">
+            <p className="font-medium">nsCore</p>
+            <p className="text-xs text-muted-foreground">v2.0.0</p>
+          </div>
         </div>
+
       </SidebarHeader>
       <SidebarContent>
         <NavHome Home={data.home} />

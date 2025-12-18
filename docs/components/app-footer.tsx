@@ -1,9 +1,5 @@
 import Link from 'next/link'
 
-interface AppFooterProps {
-  lastUpdated?: string
-}
-
 export function AppFooter() {
   return (
     <footer className="border-t mt-16">
