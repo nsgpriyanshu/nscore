@@ -14,7 +14,7 @@ const data = {
   teams: [
     {
       name: 'nsCore',
-      plan: 'v3.0.0 - Beta',
+      plan: 'v2.0.0 - Stable',
     },
   ],
   home: [

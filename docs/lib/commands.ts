@@ -61,7 +61,11 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/general/help1.png'],
+    examples: [
+      '/examples/general/help1.png',
+      '/examples/general/help2.png',
+      '/examples/general/help3.png',
+    ],
   },
   {
     name: 'announce',
@@ -79,7 +83,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['administrator'],
     },
-    examples: ['/examples/general/announce1.png'],
+    examples: ['/examples/general/announce1.png', '/examples/general/announce2.png'],
   },
   {
     name: 'servericon',
