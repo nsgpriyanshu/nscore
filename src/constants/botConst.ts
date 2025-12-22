@@ -58,4 +58,13 @@ export const EMOJIS = {
   roles: '<:roles:1244994437071896714>',
   al: '<:al:1245751475532070922>',
   ar: '<:ar:1245751409014472735>',
+  weather: '<:weather:1452601519428866099>',
+  timer: '<:timer:1244894483884015737>',
 } as const
+
+export const weather_clear = 'https://your.cdn/clear.png'
+export const weather_cloudy = 'https://your.cdn/cloudy.png'
+export const weather_rain = 'https://your.cdn/rain.png'
+export const weather_thunderstorm = 'https://your.cdn/thunder.png'
+export const weather_snow = 'https://your.cdn/snow.png'
+export const weather_fog = 'https://your.cdn/fog.png'

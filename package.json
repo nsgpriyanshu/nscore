@@ -1,6 +1,6 @@
 {
   "name": "nscore",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "This is an informative open source discord app written by nsgpriyanshu",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
