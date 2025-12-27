@@ -20,7 +20,7 @@ export default function HomePage() {
         </h1>
 
         <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-          nsCore is a powerful and informative Discord bot built with TypeScript, JavaScript, and
+          nsCore is a powerful and informative Discord bot built with TypeScript and
           discord.js — designed to elevate your server experience.
         </p>
 
