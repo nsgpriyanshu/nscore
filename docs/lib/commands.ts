@@ -149,7 +149,7 @@ export const commands: CommandData[] = [
       bot: ['sendMessages'],
       user: ['sendMessages'],
     },
-    examples: ['/examples/info/info/appinfo1.png'],
+    examples: ['/examples/info/appinfo1.png'],
   },
   {
     name: 'channelinfo',
