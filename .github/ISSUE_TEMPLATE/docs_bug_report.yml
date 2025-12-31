@@ -1,0 +1,71 @@
+name: Docs Bug Report
+description: Report an issue or mistake in the documentation
+title: "[Docs Bug]: "
+labels:
+  - bug
+  - docs
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the documentation.
+        Please fill out the details below as clearly as possible.
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of the error or issue in the documentation.
+      placeholder: Describe what is incorrect, missing, or misleading
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Specify where the issue exists (URL, page name, or file path).
+      placeholder: https://docs.example.com/page or docs/guide.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce or locate the documentation issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll to '...'
+        4. Observe the issue
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected_content
+    attributes:
+      label: Expected Content
+      description: Describe what you expected the documentation to show instead.
+      placeholder: What should the correct content be?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or References
+      description: Add screenshots, code snippets, or links if applicable.
+      placeholder: Paste images or links here
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other helpful context or notes.
+      placeholder: Anything else we should know?
+    validations:
+      required: false

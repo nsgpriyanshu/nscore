@@ -1,0 +1,103 @@
+name: App Bug Report
+description: Report a bug related to the app (commands, events, or core behavior)
+title: "[App Bug]: "
+labels:
+  - bug
+  - commands
+  - events
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an app-related bug.
+        Please provide accurate details so we can reproduce and fix it efficiently.
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of the issue.
+      placeholder: What is not working as expected?
+    validations:
+      required: true
+
+  - type: input
+    id: affected_feature
+    attributes:
+      label: Command or Feature
+      description: Specify the command, event, or feature where the bug occurs.
+      placeholder: /ping, messageCreate event, moderation system
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Use command '...'
+        2. Provide input '...'
+        3. Observe the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Logs
+      description: Add screenshots, logs, or error outputs if applicable.
+      placeholder: Paste images, logs, or stack traces here
+    validations:
+      required: false
+
+  - type: input
+    id: app_version
+    attributes:
+      label: App (Bot) Version
+      placeholder: e.g. 1.0.0
+    validations:
+      required: false
+
+  - type: input
+    id: discordjs_version
+    attributes:
+      label: Discord.js Version
+      placeholder: e.g. 14.14.1
+    validations:
+      required: false
+
+  - type: input
+    id: node_version
+    attributes:
+      label: Node.js Version
+      placeholder: e.g. 20.x
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: Ubuntu 22.04 / Windows 11 / macOS
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other helpful information about the problem.
+      placeholder: Configuration details, links, or notes
+    validations:
+      required: false

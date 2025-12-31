@@ -2,6 +2,7 @@
 node_modules/
 dist/
 types/
+assets/
 
 # TypeScript
 *.tsbuildinfo

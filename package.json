@@ -1,7 +1,7 @@
 {
   "name": "nscore",
   "version": "2.0.0",
-  "description": "This is an informative open source discord app written by nsgpriyanshu",
+  "description": "A production-ready Discord app core built with TypeScript and Discord.js.",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
