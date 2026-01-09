@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+# [2.1.0](https://github.com/nsgpriyanshu/nscore/compare/1.2.1...2.1.0) - (2026-01-09)
+
+## Bug Fixes
+
+- Readme.md, update to maintain the new structure ([67d9acd](https://github.com/nsgpriyanshu/nscore/commit/67d9acddb14c0c493413ea0584e4d8085a9ea5b6))
+- **v2:** Weather command and docs ([bf3c92c](https://github.com/nsgpriyanshu/nscore/commit/bf3c92c8c0d3d26f1fa1bcd1c223849a729361e1))
+- **docsv3:** All known bugs ([243f6c3](https://github.com/nsgpriyanshu/nscore/commit/243f6c32ba60e52b3b940b54d99f5dd9b2e07ec0))
+- **docsv3:** All the notable bugs ([9f5da24](https://github.com/nsgpriyanshu/nscore/commit/9f5da24dc37f00128f3eeab5a1088fabc441bebd))
+- Docs main layout ([fe3602b](https://github.com/nsgpriyanshu/nscore/commit/fe3602b0ea5c9caac2996f550d7599f37c31beee))
+- **v2:** Some minor bugs ([24a2775](https://github.com/nsgpriyanshu/nscore/commit/24a277560286a37b1d1bc19670b4e1f9992057e9))
+- Runall command ([50eb04e](https://github.com/nsgpriyanshu/nscore/commit/50eb04e0b9bc15db7c8eec33fa690f0df55b7faa))
+
+## Documentation
+
+- **v3:** Add examples images ([cde1978](https://github.com/nsgpriyanshu/nscore/commit/cde1978ef4e177042e6e5d8e6553b0a9cd49df97))
+- **v2:** Enhanced the overall structure ([8d16f82](https://github.com/nsgpriyanshu/nscore/commit/8d16f82b8282f72a80160e52cef12697e4bc6b89))
+- **v2:** Add author info ([1cbeba8](https://github.com/nsgpriyanshu/nscore/commit/1cbeba8da6fa6b45346277f0f8adc896868a5bcb))
+- **v2:** Add main sidebar contents structure ([c47d21b](https://github.com/nsgpriyanshu/nscore/commit/c47d21b9c64fc19528cff04ccda25f6787798b3f))
+- **v2:** Init the project ([631187c](https://github.com/nsgpriyanshu/nscore/commit/631187c2b83e1d84f406ee354cab578e0fe7732e))
+
+## Features
+
+- **v2:** Stable release is out now, contains BREAKING CHANGES ([3bb8c77](https://github.com/nsgpriyanshu/nscore/commit/3bb8c7760a3dbbd09c03648d2c53f4582931c31f))
+- Update ci, and add example images ([36248f8](https://github.com/nsgpriyanshu/nscore/commit/36248f82932b73daaf1388390af928135b12d5ca))
+- **v2:** Enhance the weather command ([cbb2aaf](https://github.com/nsgpriyanshu/nscore/commit/cbb2aaf59d29a27acf41f5c50e3592ff7b73687d))
+- **docsv3:** Add the docs for all commands ([ddb0e27](https://github.com/nsgpriyanshu/nscore/commit/ddb0e271c26943ab56258d7f78d583e283668f0e))
+- **docsv2:** Add new overview page and invite bot page ([09f884f](https://github.com/nsgpriyanshu/nscore/commit/09f884fd163bc52d20f8fbfbdf18efb18f20ba66))
+- Add new base for doc(v2) ([46bbe8d](https://github.com/nsgpriyanshu/nscore/commit/46bbe8ddd8648e38405d5c7781e2f0bd47a20c88))
+- **v2:** Add test cases using jest ([11f55d5](https://github.com/nsgpriyanshu/nscore/commit/11f55d5882319fa5aabe2a03ddc74bb53bbe4574))
+- **v2:** Full support for slash commands ([9947c48](https://github.com/nsgpriyanshu/nscore/commit/9947c48c2582485231b2660760b2a24173798cda))
+- **BREAKING:** Improve perfromance, add new commands, update the main structures ([afd5d83](https://github.com/nsgpriyanshu/nscore/commit/afd5d83d430b0dcd64e22398e48af0ebd5d7b1ba))
+- Improve ux/dx experience, upgrage perfromance, update deps, enhance the bot ([a0afb0f](https://github.com/nsgpriyanshu/nscore/commit/a0afb0fab18bf2dc023af3a6b844d8434ca2c320))
+
+## Non Code changes
+
+- Add example images for info commands ([49c499e](https://github.com/nsgpriyanshu/nscore/commit/49c499ed12ec0fc01cb173a21dcf903a24814c28))
+- Small fix ([1e6dbd7](https://github.com/nsgpriyanshu/nscore/commit/1e6dbd7a6b0bf3cfcd10bd25672b5c9abaff27dd))
+- Add modified sidebar ([e1bd47f](https://github.com/nsgpriyanshu/nscore/commit/e1bd47f2516592946a0dde60ab08d682b280fb70))
+- Bugs ([6da9b33](https://github.com/nsgpriyanshu/nscore/commit/6da9b33d1c733b48161d6fdac6f85215585d7541))
+- Add old commits ([6f66869](https://github.com/nsgpriyanshu/nscore/commit/6f668697d1d5faca76143de1e01b956c3343bcf4))
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
 # [1.2.1](https://github.com/nsgpriyanshu/nscore/compare/1.2.0...1.2.1) - (2025-10-03)
 
 ## Bug Fixes
