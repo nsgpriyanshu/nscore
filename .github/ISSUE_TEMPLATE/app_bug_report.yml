@@ -1,6 +1,6 @@
 name: App Bug Report
 description: Report a bug related to the app (commands, events, or core behavior)
-title: "[App Bug]: "
+title: '[App Bug]: '
 labels:
   - bug
   - commands

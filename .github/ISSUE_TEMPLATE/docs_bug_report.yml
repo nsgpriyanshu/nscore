@@ -1,6 +1,6 @@
 name: Docs Bug Report
 description: Report an issue or mistake in the documentation
-title: "[Docs Bug]: "
+title: '[Docs Bug]: '
 labels:
   - bug
   - docs

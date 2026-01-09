@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest a new feature for the bot
-title: "[Feature Request]: "
+title: '[Feature Request]: '
 labels:
   - enhancement
 

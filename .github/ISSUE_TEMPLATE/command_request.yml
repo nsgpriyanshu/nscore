@@ -1,6 +1,6 @@
 name: Command Request
 description: Suggest a new command for the bot
-title: "[Command Request]: "
+title: '[Command Request]: '
 labels:
   - enhancement
   - commands
