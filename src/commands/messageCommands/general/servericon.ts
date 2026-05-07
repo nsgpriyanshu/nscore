@@ -5,6 +5,7 @@ import { EmbedBuilder } from 'discord.js'
 
 const serverIcon: MessageCommand = {
   name: 'servericon',
+  aliases: ['sicon', 'guildicon'],
   description: 'Displays the icon and banner of the server.',
   async executeMessage(message: Message) {
     const { guild } = message

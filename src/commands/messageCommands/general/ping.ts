@@ -4,6 +4,7 @@ import { MessageCommand } from '../../../interfaces/Command'
 
 const ping: MessageCommand = {
   name: 'ping',
+  aliases: ['p'],
   description: 'Replies with Ping!',
   async executeMessage(message: Message) {
     const pingEmbed = new EmbedBuilder()

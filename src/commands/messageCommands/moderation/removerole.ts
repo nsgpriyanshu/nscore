@@ -5,6 +5,7 @@ import { BOT } from '../../../configs/metadata'
 
 const removerole: MessageCommand = {
   name: 'removerole',
+  aliases: ['rr'],
   description: 'Removes a specified role from a user.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

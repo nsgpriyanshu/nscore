@@ -4,6 +4,7 @@ import { COLORS, EMOJIS } from '../../../constants/botConst'
 
 const remove: MessageCommand = {
   name: 'remove',
+  aliases: ['leave'],
   description: 'Removes the bot from the specified server',
   async executeMessage(message: Message, args: string[]) {
     const guildId = args[0]

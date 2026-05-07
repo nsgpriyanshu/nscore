@@ -5,6 +5,7 @@ import { BOT } from '../../../configs/metadata'
 
 const addrole: MessageCommand = {
   name: 'addrole',
+  aliases: ['ar'],
   description: 'Assigns a role to a user.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

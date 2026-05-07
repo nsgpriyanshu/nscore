@@ -14,6 +14,7 @@ import { MessageCommand } from '../../../interfaces/Command'
 
 const channelInfo: MessageCommand = {
   name: 'channelinfo',
+  aliases: ['channel', 'cinfo'],
   description: 'Displays information about a specified channel or the current channel.',
   async executeMessage(message: Message, args: string[]) {
     // Check if a channel was mentioned or provided as an argument

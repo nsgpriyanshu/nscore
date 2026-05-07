@@ -4,6 +4,7 @@ import { MessageCommand } from '../../../interfaces/Command'
 
 const devHelloMessage: MessageCommand = {
   name: 'devhello',
+  aliases: ['dhello'],
   description: 'Replies with devHello!',
   async executeMessage(message: Message) {
     try {

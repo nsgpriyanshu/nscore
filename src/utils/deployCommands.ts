@@ -1,69 +1,35 @@
-import { REST, Routes, SlashCommandBuilder } from 'discord.js'
-import { readdirSync, statSync } from 'fs'
-import { join, extname } from 'path'
-import { logger } from './logger'
+import { REST, Routes } from 'discord.js'
+import { join } from 'path'
 import config from '../configs/botConfig'
+import { loadSlashCommandsFromDirectory } from './commandDiscovery'
+import { logger } from './logger'
 
-interface SlashCommandJSON {
-  name: string
-  description: string
-  options?: Array<any>
+const loadDeployableSlashCommands = () => {
+  const slashCommandsDir = join(__dirname, '../commands/slashCommands')
+
+  return loadSlashCommandsFromDirectory(slashCommandsDir)
+    .filter(command => command.data && typeof command.data.toJSON === 'function')
+    .map(command => command.data.toJSON())
 }
 
-// List of directories to include
-const includeDirectories = ['commands/slashCommands/general', 'commands/slashCommands/info']
+const deploySlashCommands = async () => {
+  const commands = loadDeployableSlashCommands()
+  const rest = new REST({ version: '10' }).setToken(config.BOT_TOKEN)
 
-const loadSlashCommands = (dirs: string[]): Promise<SlashCommandJSON[]> => {
-  return new Promise((resolve, reject) => {
-    const commands: SlashCommandJSON[] = []
+  logger.info('DeployCommands', `Started refreshing ${commands.length} application commands.`)
 
-    const loadCommandsFromDir = async (dir: string) => {
-      const files = readdirSync(dir)
-
-      for (const file of files) {
-        const filePath = join(dir, file)
-        const fileStat = statSync(filePath)
-
-        if (fileStat.isDirectory()) {
-          await loadCommandsFromDir(filePath)
-        } else if (extname(file) === '.ts' || extname(file) === '.js') {
-          const commandModule = await import(filePath)
-          const command = commandModule.default
-
-          if (command && command.data instanceof SlashCommandBuilder) {
-            commands.push(command.data.toJSON())
-          }
-        }
-      }
-    }
-
-    Promise.all(dirs.map(dir => loadCommandsFromDir(dir)))
-      .then(() => resolve(commands))
-      .catch(reject)
+  await rest.put(Routes.applicationCommands(config.BOT_ID), {
+    body: commands,
   })
+
+  logger.success('DeployCommands', 'Successfully reloaded application commands.')
 }
 
-// Convert includeDirectories to absolute paths
-const absoluteIncludeDirectories = includeDirectories.map(dir => join(__dirname, '../', dir))
+deploySlashCommands().catch(error => {
+  if (error instanceof Error) {
+    logger.error('DeployCommands', `Error registering commands: ${error.message}`)
+    return
+  }
 
-// Load slash commands
-loadSlashCommands(absoluteIncludeDirectories)
-  .then(commands => {
-    const rest = new REST({ version: '10' }).setToken(config.BOT_TOKEN!)
-
-    logger.info('DeployCommands', 'Started refreshing application (/) commands.')
-
-    return rest.put(Routes.applicationCommands(config.BOT_ID!), {
-      body: commands,
-    })
-  })
-  .then(() => {
-    logger.success('DeployCommands', 'Successfully reloaded application (/) commands.')
-  })
-  .catch(error => {
-    if (error instanceof Error) {
-      logger.error('DeployCommands', `Error registering commands: ${error.message}`)
-    } else {
-      logger.error('DeployCommands', 'Unknown error occurred while registering commands.')
-    }
-  })
+  logger.error('DeployCommands', 'Unknown error occurred while registering commands.')
+})

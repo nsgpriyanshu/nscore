@@ -1,10 +1,11 @@
-import { Message, EmbedBuilder, Role } from 'discord.js'
+import { Message, EmbedBuilder } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
 import { BOT } from '../../../configs/metadata'
 
 const deleterole: MessageCommand = {
   name: 'deleterole',
+  aliases: ['dr'],
   description: 'Deletes a role from the server.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

@@ -6,6 +6,7 @@ import { BOT } from '../../../configs/metadata'
 
 const update: MessageCommand = {
   name: 'update',
+  aliases: ['broadcast'],
   description: 'Sends an update message to all servers where the bot is present.',
   async executeMessage(message: Message, args: string[], client: ExtendedClient) {
     // Check if the correct number of arguments is provided

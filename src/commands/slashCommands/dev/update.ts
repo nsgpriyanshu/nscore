@@ -6,7 +6,7 @@ import {
   ChannelType,
 } from 'discord.js'
 import { SlashCommand } from '../../../interfaces/Command'
-import { COLORS, EMOJIS } from '../../../constants/botConst'
+import { COLORS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
 
 const update: SlashCommand = {

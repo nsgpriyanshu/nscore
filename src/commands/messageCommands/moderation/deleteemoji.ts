@@ -1,10 +1,11 @@
-import { Message, EmbedBuilder, GuildEmoji } from 'discord.js'
+import { Message, EmbedBuilder } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
 import { BOT } from '../../../configs/metadata'
 
 const deleteEmoji: MessageCommand = {
   name: 'deleteemoji',
+  aliases: ['de'],
   description: 'Deletes an existing emoji from the server.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

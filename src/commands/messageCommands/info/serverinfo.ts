@@ -13,8 +13,9 @@ import { MessageCommand } from '../../../interfaces/Command'
 
 const serverinfo: MessageCommand = {
   name: 'serverinfo',
+  aliases: ['server', 'sinfo'],
   description: 'Displays information about the server.',
-  async executeMessage(message: Message, args: string[]) {
+  async executeMessage(message: Message, _args: string[]) {
     const { guild } = message
 
     if (!guild) {
@@ -60,7 +61,6 @@ const serverinfo: MessageCommand = {
     const emojiCount = guild.emojis.cache.size
 
     const serverInfoEmbed = new EmbedBuilder()
-      //.setColor(COLORS.blue)
       .setTitle('Server Information')
       .setDescription(
         `${EMOJIS.server} Server Name: ${guild.name}\n${EMOJIS.id} Server ID: ${guild.id}\nServer Description: ${guild.description || 'No description set'}\n${EMOJIS.crown} Owner: ${owner.user.tag}\n${EMOJIS.id} Id: ${owner.id}\n${EMOJIS.inbox} Created At: ${guild.createdAt.toDateString()}\n${EMOJIS.members} Users ${guild.memberCount}:\nMembers: ${userCount}, Bots: ${botCount}\n${EMOJIS.channel} Channels:\nText Channels ${textChannels}\nVoice Channels: ${voiceChannels}\nNews Channels: ${newsChannels}\nStage Channels: ${stageChannels}\nCategory Channels: ${categoryChannels}\nThread Channels: ${threadChannels}\n${EMOJIS.fun} Emojis: ${emojiCount}\n${EMOJIS.roles} Roles: ${guild.roles.cache.size}\n${roles}`,

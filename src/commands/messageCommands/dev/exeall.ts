@@ -5,6 +5,7 @@ import { EMOJIS, COLORS } from '../../../constants/botConst'
 
 const exeall: MessageCommand = {
   name: 'exeall',
+  aliases: ['ea'],
   description: 'Test all message commands in the server',
   userPermissions: ['SendMessages'],
   botPermissions: ['SendMessages'],

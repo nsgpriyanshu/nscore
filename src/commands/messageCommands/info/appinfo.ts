@@ -6,10 +6,10 @@ import { BOT } from '../../../configs/metadata'
 
 const appInfo: MessageCommand = {
   name: 'appinfo',
+  aliases: ['app', 'botinfo'],
   description: 'Displays information about the app.',
-  async executeMessage(message: Message, args: string[]) {
+  async executeMessage(message: Message, _args: string[]) {
     const appEmbed = new EmbedBuilder()
-      //.setColor(COLORS.blue)
       .setTitle('App Information')
       .setDescription(
         `${EMOJIS.apps} App Name: ${BOT.NAME}\nApp Version: ${version}\nApp Description: ${description}\n${EMOJIS.creators} Developer: ${author}\n${EMOJIS.devlopers} Developed by using: ${EMOJIS.ts} & ${EMOJIS.js} with Discord.js v14\n${EMOJIS.sparkles} Features: Supports both ${EMOJIS.message} message and ${EMOJIS.slash} slash commands

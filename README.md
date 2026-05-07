@@ -4,7 +4,7 @@
 
 <img src="docs/public/logo.png" alt="nsCore" width="56" height="56"/>
 
-A modern, scalable Discord app core built for **Creator’s World** —
+A modern, scalable Discord app core built for **Creator's World** -
 designed to be forked, extended, and shipped.
 
 ![Version](https://img.shields.io/github/package-json/v/nsgpriyanshu/nscore?color=ff3b30)
@@ -13,7 +13,7 @@ designed to be forked, extended, and shipped.
 ![Last Commit](https://img.shields.io/github/last-commit/nsgpriyanshu/nscore.svg)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/nsgpriyanshu/nscore)
 [![CodeQL](https://github.com/nsgpriyanshu/nscore/actions/workflows/codeql.yml/badge.svg)](https://github.com/nsgpriyanshu/nscore/actions/workflows/codeql.yml)
-![Jest](https://github.com/nsgpriyanshu/nscore/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/nsgpriyanshu/nscore/actions/workflows/test.yml/badge.svg)
 
 </div>
 
@@ -21,10 +21,12 @@ designed to be forked, extended, and shipped.
 
 ## About
 
-**nsCore** is the official Discord app core of **Creator’s World**.
-It serves as a **production-ready base architecture** for building modern Discord bots using TypeScript and Discord.js.
+**nsCore** is the official Discord app core of **Creator's World**. It serves as
+a production-ready base architecture for building modern Discord bots using
+TypeScript and Discord.js.
 
-This repository is open-source and intended for developers who want a **clean, structured, and extensible** Discord bot foundation.
+This repository is open-source and intended for developers who want a clean,
+structured, and extensible Discord bot foundation.
 
 ---
 
@@ -33,8 +35,8 @@ This repository is open-source and intended for developers who want a **clean, s
 > [!NOTE]
 > nsCore itself is private and not available for public invitation.
 >
-> If you want to experience nsCore in action, try **Power Op** —
-> a public Discord app built on top of nsCore with the same core architecture.
+> To experience nsCore in action, try **Power Op**, a public Discord app built
+> on top of nsCore with the same core architecture.
 >
 > **[Invite Power Op](https://discord.com/oauth2/authorize?client_id=943458326644150323)**
 
@@ -42,17 +44,19 @@ This repository is open-source and intended for developers who want a **clean, s
 
 ## Features
 
-- Message commands **and** slash commands
-- Strongly-typed command & event architecture
+- Message commands and slash commands
+- Strongly typed command and event architecture
 - Centralized command, event, and error handlers
-- Built-in permission & developer-only command support
-- Scalable folder structure for large bots
-- Production-ready logging & error reporting
-- Jest testing support
+- Built-in permission and developer-only command support
+- Message-command aliases and shortforms in help output
+- Recursive command discovery for nested categories
+- Shared services for reusable command behavior
+- Production-ready logging and error reporting
+- Vitest testing support
 
 ---
 
-## Using nsCore (Developers)
+## Using nsCore
 
 ### 1. Clone the repository
 
@@ -71,6 +75,8 @@ CLIENT_ID=YOUR_DISCORD_CLIENT_ID
 DEVELOPER_IDS=YOUR_DISCORD_USER_ID
 SERVER_ID=YOUR_DEV_SERVER_ID
 ERROR_CHANNEL_ID=YOUR_ERROR_CHANNEL_ID
+NEWS_API=YOUR_NEWS_API_KEY
+WEATHER_API=YOUR_OPENWEATHER_API_KEY
 ```
 
 ### 3. Install dependencies
@@ -79,10 +85,12 @@ ERROR_CHANNEL_ID=YOUR_ERROR_CHANNEL_ID
 npm install
 ```
 
-### 4. Start the bot
+### 4. Validate the project
 
 ```sh
-npm run start
+npm run build
+npm run lint
+npm run test
 ```
 
 ### 5. Deploy slash commands
@@ -91,25 +99,32 @@ npm run start
 npm run deploy
 ```
 
+### 6. Start the bot
+
+```sh
+npm run start
+```
+
 ---
 
 ## Documentation
 
 - **nsCore Docs (Developer Guide)**
   [Docs for Developers](https://nsdocs.vercel.app/docs/nscore)
-
 - **User-facing Docs**
   [Docs for End Users](https://nscore.vercel.app)
+- **Architecture**
+  See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ---
 
 ## Tech Stack
 
-- **TypeScript** — strict typing, safer refactors
-- **Discord.js** — powerful Discord API wrapper
-- **Node.js** — fast and scalable runtime
-- **Jest** — testing support
-- **Custom utilities** — logging, constants, helpers
+- **TypeScript** - strict typing and safer refactors
+- **Discord.js** - Discord API wrapper
+- **Node.js** - runtime
+- **Vitest** - Node test runner
+- **ESLint and Prettier** - quality and formatting
 
 ---
 
@@ -124,7 +139,7 @@ npm run deploy
 
 Need help or want to discuss architecture?
 
-Join the **Creator’s World** Discord server:
+Join the **Creator's World** Discord server:
 [Join Now](https://discord.gg/vRXgWaar2G)
 
 ---

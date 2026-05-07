@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js'
 import { SlashCommand } from '../../../interfaces/Command'
-import { COLORS, EMOJIS } from '../../../constants/botConst'
+import { EMOJIS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
 
 const serverLog: SlashCommand = {
@@ -22,7 +22,6 @@ const serverLog: SlashCommand = {
     )
 
     const serverlogEmbed = new EmbedBuilder()
-      //.setColor(COLORS.blue)
       .setTitle('Server List')
       .setDescription(guilds.join('\n'))
       .setTimestamp()

@@ -1,4 +1,4 @@
-import { EmbedBuilder, Message, Role, PermissionsBitField } from 'discord.js'
+import { EmbedBuilder, Message } from 'discord.js'
 import { COLORS, EMOJIS } from '../../../constants/botConst'
 import { MessageCommand } from '../../../interfaces/Command'
 
@@ -13,6 +13,7 @@ function hexToRgba(hex: string): string {
 
 const roleInfo: MessageCommand = {
   name: 'roleinfo',
+  aliases: ['role', 'rinfo'],
   description: 'Displays information about a specific role, including its permissions.',
   async executeMessage(message: Message, args: string[]) {
     // Check if a role was mentioned or provided as an argument
@@ -43,7 +44,7 @@ const roleInfo: MessageCommand = {
       .setColor(role.color || COLORS.lightGray)
       .setTitle('Role Information')
       .setDescription(
-        `${EMOJIS.roles} Role Name: ${role.name}\n${EMOJIS.id} Role ID: ${role.id}\n${EMOJIS.colors} Color:\nHex: ${role.hexColor} • RGBA: ${rgbaColor}\nMentionable: ${role.mentionable ? 'Yes' : 'No'}\nHoisted: ${role.hoist ? 'Yes' : 'No'}\n${EMOJIS.inbox} Created At: ${role.createdAt?.toDateString()}\n${EMOJIS.members} Number of Members: ${role.members.size}\n${EMOJIS.permissions} Permissions: ${permissions.length > 0 ? permissions.join(', ') : 'None'}`,
+        `${EMOJIS.roles} Role Name: ${role.name}\n${EMOJIS.id} Role ID: ${role.id}\n${EMOJIS.colors} Color:\nHex: ${role.hexColor} - RGBA: ${rgbaColor}\nMentionable: ${role.mentionable ? 'Yes' : 'No'}\nHoisted: ${role.hoist ? 'Yes' : 'No'}\n${EMOJIS.inbox} Created At: ${role.createdAt?.toDateString()}\n${EMOJIS.members} Number of Members: ${role.members.size}\n${EMOJIS.permissions} Permissions: ${permissions.length > 0 ? permissions.join(', ') : 'None'}`,
       )
 
     await message.reply({ embeds: [roleEmbed] })

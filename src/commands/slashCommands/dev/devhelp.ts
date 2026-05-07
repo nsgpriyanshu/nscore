@@ -6,39 +6,24 @@ import {
   ButtonStyle,
   ComponentType,
   MessageComponentInteraction,
+  SlashCommandBuilder,
 } from 'discord.js'
 import { SlashCommand } from '../../../interfaces/Command'
-import { COLORS, EMOJIS } from '../../../constants/botConst'
+import { EMOJIS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
-import fs from 'fs'
 import path from 'path'
-
-// Helper function to load commands from a directory
-const loadCommandsFromDirectory = (dir: string): SlashCommand[] => {
-  const commands: SlashCommand[] = []
-  const commandFiles = fs
-    .readdirSync(dir)
-    .filter(file => file.endsWith('.js') || file.endsWith('.ts'))
-
-  for (const file of commandFiles) {
-    const command = require(path.join(dir, file)).default as SlashCommand
-    commands.push(command)
-  }
-
-  return commands
-}
+import { loadSlashCommandsFromDirectory } from '../../../utils/commandDiscovery'
 
 const devHelp: SlashCommand = {
   name: 'devhelp',
   description: 'Lists all available developer commands.',
 
-  data: {
-    name: 'devhelp',
-    description: 'Lists all available developer commands.',
-  } as SlashCommand['data'],
+  data: new SlashCommandBuilder()
+    .setName('devhelp')
+    .setDescription('Lists all available developer commands.'),
 
-  async executeSlash(interaction: ChatInputCommandInteraction, client: ExtendedClient) {
-    const devCommands = loadCommandsFromDirectory(
+  async executeSlash(interaction: ChatInputCommandInteraction, _client: ExtendedClient) {
+    const devCommands = loadSlashCommandsFromDirectory(
       path.join(__dirname, '../../../commands/slashCommands/dev'),
     )
 
@@ -47,18 +32,15 @@ const devHelp: SlashCommand = {
         .map(cmd => `\`${cmd.name.padEnd(10)}\`     ${cmd.description}`)
         .join('\n')
 
-      return (
-        new EmbedBuilder()
-          //.setColor(COLORS.blue)
-          .setTitle(`${EMOJIS.devlopers} Help - ${category} Commands`)
-          .setDescription(commandDescriptions)
-          .addFields({
-            name: `${EMOJIS.leaf} Resources`,
-            value:
-              '[Docs](https://github.com/nsgpriyanshu/nscorebot)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
-            inline: true,
-          })
-      )
+      return new EmbedBuilder()
+        .setTitle(`${EMOJIS.devlopers} Help - ${category} Commands`)
+        .setDescription(commandDescriptions)
+        .addFields({
+          name: `${EMOJIS.leaf} Resources`,
+          value:
+            '[Docs](https://github.com/nsgpriyanshu/nscorebot)\n[Support Server](https://discord.gg/QhDM7s6Aps)',
+          inline: true,
+        })
     }
 
     const devEmbed = generateEmbed('dev', devCommands)

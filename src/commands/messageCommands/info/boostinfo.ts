@@ -4,8 +4,9 @@ import { MessageCommand } from '../../../interfaces/Command'
 
 const boostInfo: MessageCommand = {
   name: 'boostinfo',
+  aliases: ['boosts'],
   description: 'Displays information about server boosts and boosters.',
-  async executeMessage(message: Message, args: string[]) {
+  async executeMessage(message: Message, _args: string[]) {
     const { guild } = message
 
     if (!guild) {
@@ -26,7 +27,6 @@ const boostInfo: MessageCommand = {
         .join('\n') || 'No boosters'
 
     const boostEmbed = new EmbedBuilder()
-      //.setColor(COLORS.blue)
       .setTitle('Server Boost Information')
       .setDescription(
         `${EMOJIS.sparkles} Total Boosts  ${boosts}\n` +

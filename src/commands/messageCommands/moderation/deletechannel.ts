@@ -5,6 +5,7 @@ import { BOT } from '../../../configs/metadata'
 
 const deleteChannel: MessageCommand = {
   name: 'deletechannel',
+  aliases: ['dc'],
   description: 'Deletes a specified channel in the server.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

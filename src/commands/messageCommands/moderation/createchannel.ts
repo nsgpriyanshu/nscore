@@ -5,6 +5,7 @@ import { BOT } from '../../../configs/metadata'
 
 const createChannel: MessageCommand = {
   name: 'createchannel',
+  aliases: ['cc'],
   description: 'Creates a new text channel in the server with an optional description.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

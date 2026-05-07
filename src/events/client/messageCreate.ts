@@ -75,7 +75,7 @@ export const eventHandlerMessage = (client: ExtendedClient) => {
 
     try {
       await command.executeMessage(message, args, client)
-      logger.success(scope, `Executed: ${commandName}`)
+      logger.success(scope, `Executed: ${command.name} via ${commandName}`)
     } catch (error) {
       logger.error(scope, `Execution failed: ${commandName}`)
       console.error(error)

@@ -1,8 +1,13 @@
 import { Collection } from 'discord.js'
-import { readdirSync, statSync } from 'fs'
 import { join } from 'path'
-import { Command } from '../interfaces/Command'
 import { ExtendedClient } from '../interfaces/ExtendedClient'
+import { MessageCommand } from '../interfaces/Command'
+import {
+  isMessageCommand,
+  isSlashCommand,
+  loadCommandModule,
+  walkCommandFiles,
+} from '../utils/commandDiscovery'
 import { logger } from '../utils/logger'
 
 export const commandHandler = (client: ExtendedClient) => {
@@ -14,89 +19,80 @@ export const commandHandler = (client: ExtendedClient) => {
 
   let slashCount = 0
   let messageCount = 0
+  let aliasCount = 0
   let warnCount = 0
+  const loadedMessageCommands: MessageCommand[] = []
 
-  /* ────────────────────────────────────────────── */
-  /* Slash Commands Loader */
-  /* ────────────────────────────────────────────── */
-  const loadSlashCommands = (dir: string) => {
-    for (const file of readdirSync(dir)) {
-      const filePath = join(dir, file)
-      const stat = statSync(filePath)
+  const registerMessageAlias = (alias: string, commandName: string) => {
+    const normalizedAlias = alias.trim().toLowerCase()
+    if (!normalizedAlias) return
 
-      if (stat.isDirectory()) {
-        loadSlashCommands(filePath)
+    const existingCommand = client.messageCommands.get(normalizedAlias)
+
+    if (existingCommand) {
+      logger.warn(
+        scope,
+        `Skipped alias "${normalizedAlias}" for ${commandName}; already used by ${existingCommand.name}`,
+      )
+      warnCount++
+      return
+    }
+
+    const command = client.messageCommands.get(commandName)
+    if (!command) return
+
+    client.messageCommands.set(normalizedAlias, command)
+    aliasCount++
+  }
+
+  for (const filePath of walkCommandFiles(join(__dirname, '../commands/slashCommands'))) {
+    try {
+      const command = loadCommandModule(filePath)
+
+      if (!isSlashCommand(command)) {
+        logger.warn(scope, `Invalid slash command: ${filePath}`)
+        warnCount++
         continue
       }
 
-      if (!file.endsWith('.js') && !file.endsWith('.ts')) continue
-
-      try {
-        const command: Command = require(filePath).default
-
-        if (!('executeSlash' in command)) {
-          logger.warn(scope, `Invalid slash command → ${filePath}`)
-          warnCount++
-          continue
-        }
-
-        client.slashCommands.set(command.name, command)
-        slashCount++
-        logger.success(scope, `Slash loaded: ${command.name}`)
-      } catch (error) {
-        logger.error(scope, `Failed to load slash command → ${filePath}`)
-        warnCount++
-      }
+      client.slashCommands.set(command.name, command)
+      slashCount++
+      logger.success(scope, `Slash loaded: ${command.name}`)
+    } catch {
+      logger.error(scope, `Failed to load slash command: ${filePath}`)
+      warnCount++
     }
   }
 
-  /* ────────────────────────────────────────────── */
-  /* Message Commands Loader */
-  /* ────────────────────────────────────────────── */
-  const loadMessageCommands = (dir: string) => {
-    for (const file of readdirSync(dir)) {
-      const filePath = join(dir, file)
-      const stat = statSync(filePath)
+  for (const filePath of walkCommandFiles(join(__dirname, '../commands/messageCommands'))) {
+    try {
+      const command = loadCommandModule(filePath)
 
-      if (stat.isDirectory()) {
-        loadMessageCommands(filePath)
+      if (!isMessageCommand(command)) {
+        logger.warn(scope, `Invalid message command: ${filePath}`)
+        warnCount++
         continue
       }
 
-      if (!file.endsWith('.js') && !file.endsWith('.ts')) continue
-
-      try {
-        const command: Command = require(filePath).default
-
-        if (!('executeMessage' in command)) {
-          logger.warn(scope, `Invalid message command → ${filePath}`)
-          warnCount++
-          continue
-        }
-
-        client.messageCommands.set(command.name, command)
-        messageCount++
-        logger.success(scope, `Message loaded: ${command.name}`)
-      } catch (error) {
-        logger.error(scope, `Failed to load message command → ${filePath}`)
-        warnCount++
-      }
+      client.messageCommands.set(command.name, command)
+      loadedMessageCommands.push(command)
+      messageCount++
+      logger.success(scope, `Message loaded: ${command.name}`)
+    } catch {
+      logger.error(scope, `Failed to load message command: ${filePath}`)
+      warnCount++
     }
   }
 
-  /* ────────────────────────────────────────────── */
-  /* Load All Commands */
-  /* ────────────────────────────────────────────── */
-  loadSlashCommands(join(__dirname, '../commands/slashCommands'))
-  loadMessageCommands(join(__dirname, '../commands/messageCommands'))
+  for (const command of loadedMessageCommands) {
+    command.aliases?.forEach(alias => registerMessageAlias(alias, command.name))
+  }
 
-  /* ────────────────────────────────────────────── */
-  /* Summary Table */
-  /* ────────────────────────────────────────────── */
   logger.build(scope, 'Command loading summary')
   logger.build(scope, '+------------+-------+')
   logger.build(scope, `| ${'Slash'.padEnd(10)} | ${slashCount.toString().padStart(5)} |`)
   logger.build(scope, `| ${'Message'.padEnd(10)} | ${messageCount.toString().padStart(5)} |`)
+  logger.build(scope, `| ${'Aliases'.padEnd(10)} | ${aliasCount.toString().padStart(5)} |`)
   logger.build(scope, '+------------+-------+')
 
   if (warnCount > 0) {

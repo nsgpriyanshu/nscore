@@ -5,6 +5,7 @@ import { BOT } from '../../../configs/metadata'
 
 const inviteInfo: MessageCommand = {
   name: 'inviteinfo',
+  aliases: ['invite', 'inv'],
   description: 'Displays information about an invite.',
   async executeMessage(message: Message, args: string[]) {
     const inviteCode = args[0]

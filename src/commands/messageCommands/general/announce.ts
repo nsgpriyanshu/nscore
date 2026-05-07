@@ -1,4 +1,4 @@
-import { Message, EmbedBuilder, PermissionsBitField, TextChannel } from 'discord.js'
+import { Message, EmbedBuilder, TextChannel } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
 import { EMOJIS } from '../../../constants/botConst'
 import { COLORS } from '../../../constants/botConst'
@@ -6,6 +6,7 @@ import { BOT } from '../../../configs/metadata'
 
 const announce: MessageCommand = {
   name: 'announce',
+  aliases: ['ann'],
   description: 'Creates an announcement in a specified channel with customizable options.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

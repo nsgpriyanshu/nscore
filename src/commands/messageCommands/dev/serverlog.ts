@@ -1,12 +1,13 @@
 import { Message, EmbedBuilder } from 'discord.js'
 import { MessageCommand } from '../../../interfaces/Command'
-import { COLORS, EMOJIS } from '../../../constants/botConst'
+import { EMOJIS } from '../../../constants/botConst'
 import { ExtendedClient } from '../../../interfaces/ExtendedClient'
 
 const serverLog: MessageCommand = {
   name: 'serverlog',
+  aliases: ['servers'],
   description: 'Lists all the servers the bot is currently in.',
-  async executeMessage(message: Message, args: string[], client: ExtendedClient) {
+  async executeMessage(message: Message, _args: string[], client: ExtendedClient) {
     // Get the list of servers
     const guilds = client.guilds.cache.map(
       guild =>
@@ -15,7 +16,6 @@ const serverLog: MessageCommand = {
 
     // Create an embed with the list of servers
     const serverlogEmbed = new EmbedBuilder()
-      //.setColor(COLORS.blue)
       .setTitle('Server List')
       .setDescription(guilds.join('\n'))
       .setTimestamp()

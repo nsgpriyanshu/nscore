@@ -11,6 +11,7 @@ import { BOT } from '../../../configs/metadata'
 
 const createrole: MessageCommand = {
   name: 'createrole',
+  aliases: ['cr'],
   description: 'Creates a new role in the server.',
   async executeMessage(message: Message, args: string[]) {
     // Check if the correct number of arguments is provided

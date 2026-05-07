@@ -27,6 +27,7 @@ function getUserBadges(user: any): string {
 
 const userinfo: MessageCommand = {
   name: 'info',
+  aliases: ['i', 'user', 'userinfo', 'ui'],
   description: 'Displays information about a user.',
   async executeMessage(message: Message, args: string[]) {
     // Get the user mentioned or use the message author

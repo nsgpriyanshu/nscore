@@ -3,23 +3,23 @@ import {
   Message,
   PermissionResolvable,
   SlashCommandBuilder,
+  SlashCommandOptionsOnlyBuilder,
 } from 'discord.js'
 import { ExtendedClient } from './ExtendedClient'
 
-/* ───────── Slash Command ───────── */
 export interface SlashCommand {
   name: string
   description?: string
-  data: SlashCommandBuilder
+  data: SlashCommandBuilder | SlashCommandOptionsOnlyBuilder
   executeSlash: (interaction: ChatInputCommandInteraction, client: ExtendedClient) => Promise<void>
   userPermissions?: PermissionResolvable[]
   botPermissions?: PermissionResolvable[]
   devOnly?: boolean
 }
 
-/* ───────── Message Command ───────── */
 export interface MessageCommand {
   name: string
+  aliases?: string[]
   description?: string
   executeMessage: (message: Message, args: string[], client: ExtendedClient) => Promise<void>
   userPermissions?: PermissionResolvable[]
@@ -27,5 +27,4 @@ export interface MessageCommand {
   devOnly?: boolean
 }
 
-/* ───────── Union (IMPORTANT) ───────── */
 export type Command = SlashCommand | MessageCommand

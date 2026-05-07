@@ -5,6 +5,7 @@ import { EmbedBuilder } from 'discord.js'
 
 const profile: MessageCommand = {
   name: 'usericon',
+  aliases: ['avatar', 'pfp', 'uicon'],
   description: 'Displays the profile of the user who triggered the command.',
   async executeMessage(message: Message, args: string[]) {
     const user =
